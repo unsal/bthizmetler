@@ -1,0 +1,56 @@
+{
+  "hizmetler": {
+    "kullanici_destek": [
+      { "hizmet": "Kullanıcı Hesaplarının Yönetimi", "link": "#" },
+      { "hizmet": "Kullanıcı Destek Hizmetlerri", "link": "#" },
+      { "hizmet": "Ziyaretçi Destek Hizmetlerri", "link": "#" },
+      { "hizmet": "Kopyalama ve Baskı", "link": "#" },
+      { "hizmet": "Ortak Alan Bilgisayarları", "link": "#" },
+      { "hizmet": "Akıllı Telefon ve Tablet Desteği", "link": "#" },
+      { "hizmet": "Masa Telsiz Telefon", "link": "#" },
+      { "hizmet": "Etkinlik Mekan Desteği", "link": "#" },
+      { "hizmet": "Ses ve Görüntü Sistemleri", "link": "#" },
+      { "hizmet": "Sınıf Teknolojileri ve Ekipmanları", "link": "#" },
+      { "hizmet": "Webcast Hizmeti", "link": "#" },
+      { "hizmet": "Kullanıcı Zimmet Yönetimi", "link": "#" }
+    ],
+    "yazilim": [
+      { "hizmet": "Yazılım Geliştirme", "link": "#" },
+      { "hizmet": "SiS Geliştirme", "link": "#" },
+      { "hizmet": "LMS Geliştirme", "link": "#" },
+      { "hizmet": "ERP Destek", "link": "#" },
+      { "hizmet": "XRM Geliştirme", "link": "#" },
+      { "hizmet": "BPM Geliştirme", "link": "#" },
+      { "hizmet": "Servis Entegrasyon", "link": "#" },
+      { "hizmet": "Alan Adı Yönetimi", "link": "#" },
+      { "hizmet": "Kurum Web Geliştirme", "link": "#" },
+      { "hizmet": "Mobil Uygulama Geliştirme", "link": "#" },
+      { "hizmet": "Mikro Site Geliştirme", "link": "#" },
+      { "hizmet": "myOzU Intranet", "link": "#" },
+      { "hizmet": "myOzU Mobil Geliştirme", "link": "#" }
+    ],
+    "sistem_network": [
+      { "hizmet": "Internet Hizmetleri", "link": "#" },
+      { "hizmet": "Ağ Hizmetleri", "link": "#" },
+      { "hizmet": "Bilgi Güvenliği", "link": "#" },
+      { "hizmet": "Antivirüs", "link": "#" },
+      { "hizmet": "Google Apps (e-posta, calendar)", "link": "#" },
+      { "hizmet": "Storage Yönetimi", "link": "#" },
+      { "hizmet": "Sunucu Sistem Barındırma", "link": "#" },
+      { "hizmet": "Web Barındırma", "link": "#" },
+      { "hizmet": "Bulut Barındırma", "link": "#" },
+      { "hizmet": "Yedekleme", "link": "#" },
+      { "hizmet": "Kurumsal Zeka Raporlama", "link": "#" },
+      { "hizmet": "Veritabanı Yönetimi", "link": "#" },
+      { "hizmet": "Santral Operasyon", "link": "#" }
+    ],
+    "kurumsal_cozumler": [
+      { "hizmet": "EBYS Destek Hizmetleri", "link": "#" },
+      { "hizmet": "Kurumsal Süreçler", "link": "#" },
+      { "hizmet": "Mevzuat Uyumluluk (GDPR)", "link": "#" },
+      { "hizmet": "KVKK İşletim", "link": "#" },
+      { "hizmet": "XRM İletişim Yönetimi", "link": "#" },
+      { "hizmet": "Çözüm Merkezi", "link": "#" }
+    ]
+  }
+}

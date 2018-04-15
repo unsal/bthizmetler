@@ -1,0 +1,20 @@
+{
+    "basliklar": {
+        "misyon": [
+           "Misyonumuz; Özyeğin Üniversitesi'nin hedeflerine ulaşması için; etkin, hızlı ve verimli Bilgi Teknolojisi hizmetlerini sunmak, akademik/idari çalışanlar ile öğrenci ve diğer paydaşlarla bilişim teknolojilerini kullanma işbirliğinde anahtar rol üstlenmektir. Bu çerçevede, öğrencilerimizin, akademisyen ve idari çalışanlarımızın herzaman ve heryerden bilgiye hızlı ve güvenli bir şekilde erişimlerini sağlayacak altyapıyı kurmak, işletmek ve geliştirmek ana hedefimizdir. "
+        ],
+        "kriterlerimiz": [
+            "Kullanılabilirlik ve paylaşım: BT hizmetlerine yetkisi ölçüsünde herkesin, her zaman ve her yerden sürekli erişebilmesini sağlamak. Ortak kaynakların kullanıcılar arasında paylaşılmasına olanak tanımak.",
+            "Genişleyebilme ve ölçeklenebilme: Sürekli artan kullanıcı sayısını ve iş yükünü kısa zamanda karşılayabilecek genişleme yeteneğine sahip olmak ve gelişen ihtiyaçlara göre çözüm geliştirebilecek sistemler kurmak.",
+            "Taşınabilirlik: Çözümlerin değişik platformlara taşınabilirliğini sağlamak.",
+            "İsteklere duyarlılık: Kullanıcı istek, gereksinim ve önerilerine duyarlı olmak.",
+            "Güvenlik: Fiziksel ve uygulamalar düzeyinde, kullanıcıların, yetkileri ölçüsünde hizmet almasını sağlamak. Yetkisiz kullanıcıların erişimini engellemek.",
+            "Katılımı Özendirici: Varolan ve olası kullanıcıların BT hizmetlerini her yönüyle kullanabilmelerini sağlamak.",
+            "Değişiklikleri Uygulama: Süreçlerde oluşacak değişikliklerin, teknoloji altyapısına yansıtılmasını sağlamak.",
+            "Esneklik: Teknolojik gelişmelerin, istenildiğinde kolayca uyarlanabileceği bir ortam oluşturmak.",
+            "Standartlaşma: Üniversite’nin tüm süreçlerinin en verimli biçimde çalışması ve bütünlüğün sağlanması için gerekli standartları uygulamak.",
+            "Uygun maliyet: Her bir sürecin uygun maliyetle yürütülmesini sağlamak.",
+            "Önceden önlem alma: Sağlanan BT hizmetlerinin en verimli olması için gerekli önlemleri önceden almak."
+        ]
+        }
+}
