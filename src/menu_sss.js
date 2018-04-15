@@ -31,7 +31,7 @@ export default class SSS extends Component {
             <p>
               A dog is a type of domesticated animal. Known for its loyalty and
               faithfulness, it can be found as a welcome guest in many
-              households across the world.
+              households across the world...
             </p>
           </Accordion.Content>
 
