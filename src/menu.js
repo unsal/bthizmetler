@@ -1,12 +1,16 @@
 import React from 'react';
 import { Tab } from 'semantic-ui-react';
-import Hizmetler from './menu_hizmetler';
-import SSS from './menu_sss'
+import Hizmetler from './menuHizmetler';
+import SSS from './menuSSS';
+import Ekibimiz from './menuEkibimiz';
+import Prosedurler from './menuProsedurler';
 
 const panes = [
   { menuItem: 'Hizmet Kataloğu', render: () => <Tab.Pane><Hizmetler /></Tab.Pane> },
-  { menuItem: 'SSS', render: () => <Tab.Pane><SSS /></Tab.Pane> },
-  { menuItem: 'Ekibimiz', render: () => <Tab.Pane>Tab 3 Content</Tab.Pane> },
+  { menuItem: 'Ekibimiz', render: () => <Tab.Pane><Ekibimiz /></Tab.Pane> },
+  { menuItem: 'Prosedürler', render: () => <Tab.Pane><Prosedurler /></Tab.Pane> },
+  { menuItem: 'SSS', render: () => <Tab.Pane><SSS /></Tab.Pane> }
+
 ]
 const BTMenu = () => (
   <Tab panes={panes} />

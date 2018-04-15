@@ -8,11 +8,11 @@
       { "hizmet": "Ortak Alan Bilgisayarları", "link": "#" },
       { "hizmet": "Akıllı Telefon ve Tablet Desteği", "link": "#" },
       { "hizmet": "Masa Telsiz Telefon", "link": "#" },
-      { "hizmet": "Etkinlik Mekan Desteği", "link": "#" },
-      { "hizmet": "Ses ve Görüntü Sistemleri", "link": "#" },
-      { "hizmet": "Sınıf Teknolojileri ve Ekipmanları", "link": "#" },
-      { "hizmet": "Webcast Hizmeti", "link": "#" },
-      { "hizmet": "Kullanıcı Zimmet Yönetimi", "link": "#" }
+      { "hizmet": "Kullanıcı Zimmet Yönetimi", "link": "#" },
+      { "hizmet": "AV Etkinlik Mekan Desteği", "link": "#" },
+      { "hizmet": "AV Ses ve Görüntü Sistemleri", "link": "#" },
+      { "hizmet": "AV Sınıf Teknolojileri", "link": "#" },
+      { "hizmet": "AV Webcast Hizmeti", "link": "#" }
     ],
     "yazilim": [
       { "hizmet": "Yazılım Geliştirme", "link": "#" },

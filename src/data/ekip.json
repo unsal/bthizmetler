@@ -1,0 +1,60 @@
+{
+"direktor": {
+                "info": [{"unvani":"BT Direktörü","adi":"Ünsal Yavuz","resim":"img/unsal.png"}],
+                "yoneticiler": [
+                          {
+                            "unvani":"Kullanıcı Destek Md.",
+                            "adi":"Muzaffer Torlak",
+                            "resim":"img/muzaffer.png"
+                         },
+                         {
+                          "unvani":"Yazılım Md.",
+                          "adi":"Yeşim Başaran",
+                          "resim":"img/yesim.png"
+                      },
+                      {
+                        "unvani":"Sistem Network Md.",
+                        "adi":"Yusuf Bayramoğlu",
+                        "resim":"img/yusuf.png"
+                     },
+                     {
+                      "unvani":"Kurumsal Çözümler Md.",
+                      "adi":"Meral Işık",
+                      "resim":"img/meral.png"
+                    }],
+              "ekip": {
+                          "kullanicidestek": [
+                            {"unvani":"KD Ekip Yn.","adi":"Melih Can", "resim":"img/melih.png"},
+                            {"unvani":"Kullanıcı Destek","adi":"Ali Kemal Koldaş", "resim":"img/alikemal.png"},
+                            {"unvani":"Kullanıcı Destek","adi":"Bülent Öztürk", "resim":"img/bulent.png"},
+                            {"unvani":"Kullanıcı Destek","adi":"Cüneyt Ertürk", "resim":"img/cuneyt.png"},
+                            {"unvani":"Kullanıcı Destek","adi":"Emre Saygıner", "resim":"img/emre.png"},
+                            {"unvani":"Kullanıcı Destek","adi":"Hüsnü Kuzucuoğlu", "resim":"img/image.png"},
+                            {"unvani":"Kullanıcı Destek","adi":"Işın Sarıöz", "resim":"img/isin.png"},
+                            {"unvani":"AV Ekip Yn.","adi":"Ahmet Ertürk", "resim":"img/ahmet.png"},
+                            {"unvani":"AV Tekn.Destek","adi":"Murat Yılmaz", "resim":"img/murat.png"},
+                            {"unvani":"AV Tekn.Destek","adi":"Sadık Top", "resim":"img/sadik.png"}
+                          ],
+                         "yazilim": [
+                          {"unvani":"Akademik Y.Ekip Yön.","adi":"Özge Bulut", "resim":"img/ozge.png"},
+                          {"unvani":"Yazılım Uzmanı","adi":"Fırat Zeydan", "resim":"img/firat.png"},
+                          {"unvani":"Yazılım Uzmanı","adi":"Semih Tanrıverdi", "resim":"img/image.png"},
+                          {"unvani":"Yazılım Uzmanı","adi":"Gamze Sarı", "resim":"img/image.png"},
+                          {"unvani":"Yazılım Uzmanı","adi":"Hafsa Elif Özçiftçi", "resim":"img/image.png"},
+                          {"unvani":"Yazılım Uzmanı","adi":"Ernoyan Çavdar", "resim":"img/ernoyan.png"},
+                          {"unvani":"İdari Y.Ekip Yn.","adi":"Nazlı Yıldız", "resim":"img/image.png"},
+                          {"unvani":"Yazılım Uzmanı","adi":"Yalçın Demir", "resim":"img/image.png"},
+                          {"unvani":"Yazılım Uzmanı","adi":"Aysun Görkem", "resim":"img/image.png"},
+                          {"unvani":"Web Mobil Yaz.Uzmanı","adi":"Samed Sarıaydın", "resim":"img/samed.png"},
+                          {"unvani":"Web Mobil Yaz.Uzmanı","adi":"Recep Kocur", "resim":"img/image.png"}
+                         ],
+                         "sistemnetwork": [
+                          {"unvani":"Network Yönetim Uzmanı","adi":"Onur Özbakır", "resim":"img/onur.png"},
+                          {"unvani":"Sistem Yönetim Uzmanı","adi":"Hakan Doksanbir", "resim":"img/hakan.png"},
+                          {"unvani":"Veritabanı Yöneticisi","adi":"Turgay Akdağ", "resim":"img/turgay.png"},
+                          {"unvani":"Kurumsal Zeka Uzmanı","adi":"Emre Özdoğru", "resim":"img/image.png"}
+                         ]
+                    }
+                    }
+}
+

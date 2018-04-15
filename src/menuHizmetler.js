@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Card, Feed, Icon, Header, Grid, Container, Segment } from "semantic-ui-react";
-import data from "./data/data.json";
-import bt from "./data/misyon.json";
+import jsonHizmetler from "./data/hizmetler.json";
+import jsonBT from "./data/misyon.json";
 
 class Hizmetler extends Component {
   constructor(props) {
@@ -18,12 +18,12 @@ class Hizmetler extends Component {
 
   componentDidMount() {
     this.setState({
-      hizmetler: data.hizmetler,
-      kullanici_destek: data.hizmetler.kullanici_destek,
-      yazilim: data.hizmetler.yazilim,
-      sistem_network: data.hizmetler.sistem_network,
-      kurumsal_cozumler: data.hizmetler.kurumsal_cozumler,
-      misyon: bt.basliklar.misyon
+      hizmetler: jsonHizmetler.hizmetler,
+      kullanici_destek: jsonHizmetler.hizmetler.kullanici_destek,
+      yazilim: jsonHizmetler.hizmetler.yazilim,
+      sistem_network: jsonHizmetler.hizmetler.sistem_network,
+      kurumsal_cozumler: jsonHizmetler.hizmetler.kurumsal_cozumler,
+      misyon: jsonBT.basliklar.misyon
     });
   }
 
@@ -36,8 +36,6 @@ class Hizmetler extends Component {
           <Feed>
             {Object.keys(btGrubu).map(key => (
               <Feed.Event key={key}>
-                {/* <Feed.Label image="/assets/images/avatar/small/molly.png" /> */}
-
                 <Feed.Content> <Feed.Summary> <Icon loading name="spinner" /><a href={btGrubu[key].link}>{btGrubu[key].hizmet}</a> </Feed.Summary>{" "} </Feed.Content>
               </Feed.Event>
             ))}
@@ -58,7 +56,7 @@ class Hizmetler extends Component {
           <Grid.Row columns={1}> <Grid.Column> <Misyon /> </Grid.Column> </Grid.Row>
           {/* Hizmetler */}
           <Grid.Row>
-            <Grid.Column color="blue"> {" "} {this.HizmetListesi( "KULLANICI DESTEK", this.state.kullanici_destek, "doctor" )}{" "} </Grid.Column>
+            <Grid.Column color="teal"> {" "} {this.HizmetListesi( "KULLANICI DESTEK", this.state.kullanici_destek, "doctor" )}{" "} </Grid.Column>
             <Grid.Column color="teal"> {" "} {this.HizmetListesi( "YAZILIM", this.state.yazilim, "rocket" )}{" "} </Grid.Column>
             <Grid.Column color="teal"> {" "} {this.HizmetListesi( "SİSTEM NETWORK", this.state.sistem_network, "wifi" )} </Grid.Column>
             <Grid.Column color="teal"> {" "} {this.HizmetListesi( "KURUMSAL ÇÖZÜMLER", this.state.kurumsal_cozumler, "university")}{" "} </Grid.Column>
