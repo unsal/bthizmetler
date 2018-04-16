@@ -1,0 +1,18 @@
+objgen.com sitesi için
+
+politika[0]
+  adi s = BİLGİ TEKNOLOJİLERİ KAYNAKARLINI PLANLAMA
+  prosedurler[] s = Bütçe Planlama Prosedürü, BT Hizmetlerini Gözden Geçirme Prosedürü, Yazılım/Donanım Lisans Yönetim Prosedürü, Dış Kaynaklı Hizmetlerin Yönetim Prosedürü, Paket Yazılım Yönetim Prosedürü,Web Siteleri Yönetim Prosedürü
+politika[1]
+  adi s = PROJE VE UYGULAMA GELİŞTİRME
+  prosedurler[] s = Uygulama Geliştirme Prosedürü, Entegrasyon Geliştirme Prosedürü, Alan Adı Yönetim Prosedürü, Yazılım Sağlama Prosedürü, Danışmanlık Sağlama Prosedürü
+politika[2]
+  adi s = SİSTEM ve NETWORK KAYNAKLARINI YÖNETME
+  prosedurler[] s = Bilgi Güvenliğini Yönetme Prosedürü, Sunucu Sistem ve Barındırma Prosedürü, Yedekleme Hizmeti Prosedürü, Veritabanı Yönetim Prosedürü, Santral Operasyonları Yönetim Prosedürü, Internet Hizmeti Yönetim Prosedürü, Ağ Hizmetleri Yönetim Prosedürü, Google Apps Uygulamaları İletim Prosedürü, Güvenlik olaylarını Yönetim Prosedürü, Storage Hizmeti Yönetim Prosedürü, Kurumsal Zeka İşletim Prosedürü
+politika[3]
+  adi s = KULLANICI DESTEK HİZMETLERİNİ YÖNETME
+  prosedurler[] s = Envanter Kayıtlarının Yönetim Prosedürü, Kullanıcı Hesapları Yönetim Prosedürü, Kullanıcı Çağrılarının Yönetimi Prosedürü, Memnuniyet Anketleri Yönetimi Prosedürü, Kullanıcı Şikayetlerinin Yönetim Prosedürü, Digital Signage Sistem İşletim Prosedürü, AV Ekipmanları Yönetim Prosedürü
+
+
+  
+

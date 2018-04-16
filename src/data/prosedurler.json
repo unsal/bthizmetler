@@ -1,0 +1,53 @@
+{
+  "politikalar": [
+    {
+      "adi": "BİLGİ TEKNOLOJİLERİ KAYNAKARLINI PLANLAMA",
+      "prosedurler": [
+        "Bütçe Planlama Prosedürü",
+        "BT Hizmetlerini Gözden Geçirme Prosedürü",
+        "Yazılım/Donanım Lisans Yönetim Prosedürü",
+        "Dış Kaynaklı Hizmetlerin Yönetim Prosedürü",
+        "Paket Yazılım Yönetim Prosedürü",
+        "Web Siteleri Yönetim Prosedürü"
+      ]
+    },
+    {
+      "adi": "PROJE VE UYGULAMA GELİŞTİRME",
+      "prosedurler": [
+        "Uygulama Geliştirme Prosedürü",
+        "Entegrasyon Geliştirme Prosedürü",
+        "Alan Adı Yönetim Prosedürü",
+        "Yazılım Sağlama Prosedürü",
+        "Danışmanlık Sağlama Prosedürü"
+      ]
+    },
+    {
+      "adi": "SİSTEM ve NETWORK KAYNAKLARINI YÖNETME",
+      "prosedurler": [
+        "Bilgi Güvenliğini Yönetme Prosedürü",
+        "Sunucu Sistem ve Barındırma Prosedürü",
+        "Yedekleme Hizmeti Prosedürü",
+        "Veritabanı Yönetim Prosedürü",
+        "Santral Operasyonları Yönetim Prosedürü",
+        "Internet Hizmeti Yönetim Prosedürü",
+        "Ağ Hizmetleri Yönetim Prosedürü",
+        "Google Apps Uygulamaları İletim Prosedürü",
+        "Güvenlik olaylarını Yönetim Prosedürü",
+        "Storage Hizmeti Yönetim Prosedürü",
+        "Kurumsal Zeka İşletim Prosedürü"
+      ]
+    },
+    {
+      "adi": "KULLANICI DESTEK HİZMETLERİNİ YÖNETME",
+      "prosedurler": [
+        "Envanter Kayıtlarının Yönetim Prosedürü",
+        "Kullanıcı Hesapları Yönetim Prosedürü",
+        "Kullanıcı Çağrılarının Yönetimi Prosedürü",
+        "Memnuniyet Anketleri Yönetimi Prosedürü",
+        "Kullanıcı Şikayetlerinin Yönetim Prosedürü",
+        "Digital Signage Sistem İşletim Prosedürü",
+        "AV Ekipmanları Yönetim Prosedürü"
+      ]
+    }
+  ]
+}

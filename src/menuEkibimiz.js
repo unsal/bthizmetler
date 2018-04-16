@@ -46,6 +46,7 @@ calisanlar = (nesne, renk) => {
 render () {
 
   return <Container text textAlign="left">
+
   <Grid columns={4} centered>
 
   {/* DİREKTÖR */}
@@ -84,6 +85,7 @@ render () {
 </Grid.Row>
 
   </Grid>
+
   </Container>
 }
 }

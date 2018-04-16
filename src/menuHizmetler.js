@@ -31,7 +31,7 @@ class Hizmetler extends Component {
     return (
       <Card>
         {/* <Card.Content> <Card.Header>{baslik}</Card.Header> </Card.Content> */}
-        <Header as='h3' icon textAlign='center'> <Icon name={icon} circular /> <Header.Content> {baslik} </Header.Content> </Header>
+        <Header as='h3' icon textAlign='center'> <Icon name={icon} circular color="grey"/> <Header.Content> {baslik} </Header.Content> </Header>
         <Card.Content>
           <Feed>
             {Object.keys(btGrubu).map(key => (
@@ -44,7 +44,7 @@ class Hizmetler extends Component {
       </Card>
     );
   };
-
+  
   render() {
     const misyon = this.state.misyon;
     const Misyon = () => Object.keys(misyon).map(key => <Segment attached="top"><p>{misyon[key]}</p></Segment>);
@@ -56,10 +56,10 @@ class Hizmetler extends Component {
           <Grid.Row columns={1}> <Grid.Column> <Misyon /> </Grid.Column> </Grid.Row>
           {/* Hizmetler */}
           <Grid.Row>
-            <Grid.Column color="teal"> {" "} {this.HizmetListesi( "KULLANICI DESTEK", this.state.kullanici_destek, "doctor" )}{" "} </Grid.Column>
-            <Grid.Column color="teal"> {" "} {this.HizmetListesi( "YAZILIM", this.state.yazilim, "rocket" )}{" "} </Grid.Column>
-            <Grid.Column color="teal"> {" "} {this.HizmetListesi( "SİSTEM NETWORK", this.state.sistem_network, "wifi" )} </Grid.Column>
-            <Grid.Column color="teal"> {" "} {this.HizmetListesi( "KURUMSAL ÇÖZÜMLER", this.state.kurumsal_cozumler, "university")}{" "} </Grid.Column>
+            <Grid.Column> {" "} {this.HizmetListesi( "KULLANICI DESTEK", this.state.kullanici_destek, "doctor" )}{" "} </Grid.Column>
+            <Grid.Column> {" "} {this.HizmetListesi( "YAZILIM", this.state.yazilim, "rocket" )}{" "} </Grid.Column>
+            <Grid.Column> {" "} {this.HizmetListesi( "SİSTEM NETWORK", this.state.sistem_network, "wifi" )} </Grid.Column>
+            <Grid.Column> {" "} {this.HizmetListesi( "KURUMSAL ÇÖZÜMLER", this.state.kurumsal_cozumler, "university")}{" "} </Grid.Column>
           </Grid.Row>
         </Grid>
       </Container>

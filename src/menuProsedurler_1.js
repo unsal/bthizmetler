@@ -1,44 +1,5 @@
-import React, { Component } from 'react'
+import React from 'react'
 import { List, Segment, Container } from 'semantic-ui-react'
-import Prosedurler from './data/prosedurler'
-
-class Prosedurler extends Component {
-  constructor (props) {
-    super(props)
-    this.state = {
-        politikalar : []
-    }
-  }
-
-  componentDidMount () {
-    this.setState({
-        politikalar: Prosedurler.politika
-    })
-  }
-  
-  render () {
-    return (
-        <Segment basic>
-        <Container>
-        <List ordered>
-    Object.keys[this.state.politikalar].map(key => () => {
-             adi = this.state.politikalar[key].adi
-             prosedurler = this.state.politikalar[key].prosedurler
-             
-        
-        }
-        )
-        </List>
-        </Container>
-        </Segment>
-    )
-
-  }
-
-}
-
-
-
 
 const Prosedurler = () => (
  <Segment basic>
