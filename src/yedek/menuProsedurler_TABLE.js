@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Segment, Container, List } from 'semantic-ui-react'
+import { Segment, Container, Table, Icon } from 'semantic-ui-react'
 import db from './data/prosedurler'
 
 class Prosedurler extends Component {
@@ -20,14 +20,26 @@ class Prosedurler extends Component {
     return (
         <Segment basic>
         <Container>
-        <List ordered>
+        <Table celled selectable>
+          <Table.Header>
+            <Table.Row>
+              <Table.HeaderCell colSpan='3'>Prosedürlerimiz</Table.HeaderCell>
+            </Table.Row>
+          </Table.Header>
+
+        <Table.Body>
             {Object.keys(this.state.politikalar).map(key => {
                 const adi = this.state.politikalar[key].adi;
                 const prosedurler = this.state.politikalar[key].prosedurler;
-                const liste = prosedurler.map(item => <List.Item as='a'>{item}</List.Item>)
-                return <List.Item><b><a>{adi}</a></b><List.List>{liste}</List.List></List.Item>
+                const liste = prosedurler.map(item => <Table.Row><Table.Cell><Icon name='file outline' />{item}</Table.Cell></Table.Row>)
+                return [
+                          (<Table.Row><Table.Cell><Icon name='folder' /><b>{adi}</b></Table.Cell></Table.Row>),
+                          (liste)
+                      ]
             })}
-            </List>
+
+        </Table.Body>
+        </Table>
         </Container>
         </Segment>
     )
