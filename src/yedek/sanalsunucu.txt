@@ -1,0 +1,20 @@
+Ünsal Bey merhaba,
+istemiş oldugunuz sunucu kurulumu tamamlanmıştır.Bilgileri  asagida ki gibidir.
+Bilgilerinize sunarım,
+##############################
+CPU  : 2 core
+RAM : 4GB
+HDD : 100GB
+Hostname  : SRVTEST
+ip adress : 10.100.10.114
+ssh kullanici adi  : root
+sifre  : TestApp1905
+###############################
+OS version :
+Distributor ID: Ubuntu
+Description:    Ubuntu 16.04.4 LTS
+Release:        16.04
+Codename:       xenial
+###############################
+Yuklu paketler :  ssh,
+###############################

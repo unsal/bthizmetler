@@ -51,7 +51,7 @@ class Hizmetler extends Component {
 
     return <Segment basic>
     <Container textAlign="justified">
-        <Grid centered columns={4} divided>
+        <Grid centered columns={4} divided >
           {/* Misyon */}
           <Grid.Row columns={1}> <Grid.Column> <Misyon /> </Grid.Column> </Grid.Row>
           {/* Hizmetler */}
