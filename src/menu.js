@@ -17,6 +17,7 @@ const panes = [
 ]
 const BTMenu = () => (
   <Tab panes={panes} />
+  // <Tab menu={{ pointing: true }} panes={panes} />
 )
 
 export default BTMenu

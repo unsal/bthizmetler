@@ -4,6 +4,16 @@ body {
   font-family: sans-serif;
 }
 
-.segments, .segment{
-  border: 0px !important;
+.hizmetlistesi {
+  color: #000000;
+  font-weight: bold;
 }
+
+.misyon {
+  color: #636363;
+}
+
+a {
+  color: #000000 !important;
+}
+
