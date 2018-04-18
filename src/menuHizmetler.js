@@ -31,7 +31,7 @@ class Hizmetler extends Component {
     return (
       <Card>
         {/* <Card.Content> <Card.Header>{baslik}</Card.Header> </Card.Content> */}
-        <Header as='h3' icon textAlign='center'> <Icon name={icon} circular color="grey"/> <Header.Content> {baslik} </Header.Content> </Header>
+        <Header as='h3' icon textAlign='center'> <Icon name={icon} circular color="olive"/> <Header.Content> {baslik} </Header.Content> </Header>
         <Card.Content>
           <List divided selection>
             {Object.keys(btGrubu).map(key => (

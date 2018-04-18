@@ -9,7 +9,7 @@ class App extends Component {
     return <Segment basic>
               <Container textAlign="justified">
 
-              <Header as="h1"><Image src='/img/_logo.png' size='mini' /><Header.Content>
+              <Header as="h1"><Image src='/img/_logo.png' size='huge' /><Header.Content>
                 Bilgi Teknolojileri
               </Header.Content></Header>
               <BTMenu />

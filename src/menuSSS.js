@@ -20,18 +20,16 @@ export default class SSS extends Component {
       <Container textAlign="justified">
         <Header as="h2">
           {" "}
-          <Icon name="question circle" />Sıkça Sorulan Sorular{" "}
+          <Icon name="question circle" color="yellow"/>Sıkça Sorulan Sorular{" "}
         </Header>
         <Accordion fluid styled>
           <Accordion.Title active={activeIndex === 0} index={0} onClick={this.handleClick} >
             <Icon name="dropdown" />
-            What is a dog?
+            Yazıcı ayarlarımı nasıl yapılandırabilirim?
           </Accordion.Title>
           <Accordion.Content active={activeIndex === 0}>
             <p>
-              A dog is a type of domesticated animal. Known for its loyalty and
-              faithfulness, it can be found as a welcome guest in many
-              households across the world...
+            Windows bilgisayarlarda Ozu.Net ağında yazıcı ekleme için yardımcı dökümandır. Bilgisayara yazıcı eklemeden önce Ozu.Net ağ bağlantısının gerçekleştirilmiş olması gerekmektedir.
             </p>
           </Accordion.Content>
 
@@ -41,14 +39,11 @@ export default class SSS extends Component {
             onClick={this.handleClick}
           >
             <Icon name="dropdown" />
-            What kinds of dogs are there?
+            Outlook ayarlarımı Windows PC üzerinde nasıl yaparım?
           </Accordion.Title>
           <Accordion.Content active={activeIndex === 1}>
             <p>
-              There are many breeds of dogs. Each breed varies in size and
-              temperament. Owners often select a breed of dog that they find to
-              be compatible with their own lifestyle and desires from a
-              companion.
+            Ozyegin uzantılı mail adreslerinin outlook programında kullanıp hesap ekleme için yardımcı dökümandır.
             </p>
           </Accordion.Content>
 
@@ -58,19 +53,11 @@ export default class SSS extends Component {
             onClick={this.handleClick}
           >
             <Icon name="dropdown" />
-            How do you acquire a dog?
+            Ziyaretçiler için kablosuz ağ bağlantısını nasıl sağlarım?
           </Accordion.Title>
           <Accordion.Content active={activeIndex === 2}>
             <p>
-              Three common ways for a prospective owner to acquire a dog is from
-              pet shops, private owners, or shelters.
-            </p>
-            <p>
-              A pet shop may be the most convenient way to buy a dog. Buying a
-              dog from a private owner allows you to assess the pedigree and
-              upbringing of your dog before choosing to take it home. Lastly,
-              finding your dog from a shelter, helps give a good home to a dog
-              who may not find one so readily.
+            Ziyaretçiler için internet bağlantısı hakkında dökümandır. Dökümandaki yönergelerden önce solutioncenter üzerinden talep açılarak ziyaretçi interneti kullanımı için kullanıcı adı ve şifre talep edilmesi gerekmektedir.
             </p>
           </Accordion.Content>
         </Accordion>
