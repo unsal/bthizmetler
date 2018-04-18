@@ -51,15 +51,15 @@ class Hizmetler extends Component {
 
     return <Segment basic>
     <Container textAlign="justified">
-        <Grid centered columns={4} divided >
+        <Grid centered columns={4} >
           {/* Misyon */}
           <Grid.Row columns={1}> <Grid.Column> <Misyon /> </Grid.Column> </Grid.Row>
           {/* Hizmetler */}
           <Grid.Row columns={4}>
-            <Grid.Column> {" "} {this.CardHizmetler( "KULLANICI DESTEK", this.state.kullanici_destek, "doctor" )}{" "} </Grid.Column>
-            <Grid.Column> {" "} {this.CardHizmetler( "YAZILIM", this.state.yazilim, "rocket" )}{" "} </Grid.Column>
-            <Grid.Column> {" "} {this.CardHizmetler( "SİSTEM NETWORK", this.state.sistem_network, "wifi" )} </Grid.Column>
-            <Grid.Column> {" "} {this.CardHizmetler( "KURUMSAL ÇÖZÜMLER", this.state.kurumsal_cozumler, "university")}{" "} </Grid.Column>
+            <Grid.Column> {this.CardHizmetler( "KULLANICI DESTEK", this.state.kullanici_destek, "doctor" )}</Grid.Column>
+            <Grid.Column> {this.CardHizmetler( "YAZILIM", this.state.yazilim, "rocket" )}</Grid.Column>
+            <Grid.Column> {this.CardHizmetler( "SİSTEM NETWORK", this.state.sistem_network, "wifi" )} </Grid.Column>
+            <Grid.Column> {this.CardHizmetler( "KURUMSAL ÇÖZÜMLER", this.state.kurumsal_cozumler, "university")}</Grid.Column>
           </Grid.Row>
         </Grid>
       </Container>
