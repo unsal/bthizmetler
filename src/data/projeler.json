@@ -1,0 +1,56 @@
+{
+  "2018": {
+    "yazilim": [
+      { "proje": "SiS Projeler", "aciklama": "202 Yazılım Projesi geliştirilecek" },
+      { "proje": "XRM Uygulamaları", "aciklama": "IK Bilgi Sistemi, Öğrenci Kulüpleri, LCB v.b. geliştirilecek 9 XRM Projesi" },
+      { "proje": "BPM İş AKışı Uygulamaları", "aciklama": "İşe Başlama/Ayrılma, İzin Formu, İhale Karar Süreci, Etkinlik Talep Formu v.b. 19 Form" },
+      { "proje": "ERP Destek", "aciklama": "lorem ipsum..." },
+      { "proje": "XRM Geliştirme", "aciklama": "lorem ipsum..." },
+      { "proje": "BPM Geliştirme", "aciklama": "lorem ipsum..." },
+      { "proje": "Servis Entegrasyon", "aciklama": "lorem ipsum..." },
+      { "proje": "Alan Adı Yönetimi", "aciklama": "lorem ipsum..." },
+      { "proje": "Kurum Web Geliştirme", "aciklama": "lorem ipsum..." },
+      { "proje": "Mobil Uygulama Geliştirme", "aciklama": "lorem ipsum..." },
+      { "proje": "Mikro Site Geliştirme", "aciklama": "lorem ipsum..." },
+      { "proje": "myOzU Intranet", "aciklama": "lorem ipsum..." },
+      { "proje": "myOzU Mobil Geliştirme", "aciklama": "lorem ipsum..." }
+    ],
+    "sistem_network": [
+      { "proje": "Internet projeleri", "aciklama": "lorem ipsum..." },
+      { "proje": "Ağ projeleri", "aciklama": "lorem ipsum..." },
+      { "proje": "Bilgi Güvenliği", "aciklama": "lorem ipsum..." },
+      { "proje": "Antivirüs", "aciklama": "lorem ipsum..." },
+      { "proje": "Google Apps (e-posta, calendar)", "aciklama": "lorem ipsum..." },
+      { "proje": "Storage Yönetimi", "aciklama": "lorem ipsum..." },
+      { "proje": "Sunucu Sistem Barındırma", "aciklama": "lorem ipsum..." },
+      { "proje": "Web Barındırma", "aciklama": "lorem ipsum..." },
+      { "proje": "Bulut Barındırma", "aciklama": "lorem ipsum..." },
+      { "proje": "Yedekleme", "aciklama": "lorem ipsum..." },
+      { "proje": "Kurumsal Zeka Raporlama", "aciklama": "lorem ipsum..." },
+      { "proje": "Veritabanı Yönetimi", "aciklama": "lorem ipsum..." },
+      { "proje": "Santral Operasyon", "aciklama": "lorem ipsum..." }
+    ],
+    "kurumsal_cozumler": [
+      { "proje": "EBYS Destek projeleri", "aciklama": "lorem ipsum..." },
+      { "proje": "Kurumsal Süreçler", "aciklama": "lorem ipsum..." },
+      { "proje": "Mevzuat Uyumluluk (GDPR)", "aciklama": "lorem ipsum..." },
+      { "proje": "KVKK İşletim", "aciklama": "lorem ipsum..." },
+      { "proje": "XRM İletişim Yönetimi", "aciklama": "lorem ipsum..." },
+      { "proje": "Çözüm Merkezi", "aciklama": "lorem ipsum..." }
+    ],
+    "kullanici_destek": [
+      { "proje": "Kullanıcı Hesaplarının Yönetimi", "aciklama": "lorem ipsum..." },
+      { "proje": "Kullanıcı Destek projelerri", "aciklama": "lorem ipsum..." },
+      { "proje": "Ziyaretçi Destek projelerri", "aciklama": "lorem ipsum..." },
+      { "proje": "Kopyalama ve Baskı", "aciklama": "lorem ipsum..." },
+      { "proje": "Ortak Alan Bilgisayarları", "aciklama": "lorem ipsum..." },
+      { "proje": "Akıllı Telefon ve Tablet Desteği", "aciklama": "lorem ipsum..." },
+      { "proje": "Masa Telsiz Telefon", "aciklama": "lorem ipsum..." },
+      { "proje": "Kullanıcı Zimmet Yönetimi", "aciklama": "lorem ipsum..." },
+      { "proje": "AV Etkinlik Mekan Desteği", "aciklama": "lorem ipsum..." },
+      { "proje": "AV Ses ve Görüntü Sistemleri", "aciklama": "lorem ipsum..." },
+      { "proje": "AV Sınıf Teknolojileri", "aciklama": "lorem ipsum..." },
+      { "proje": "AV Webcast projei", "aciklama": "lorem ipsum..." }
+    ]
+  }
+}

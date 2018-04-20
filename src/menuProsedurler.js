@@ -18,7 +18,7 @@ class Prosedurler extends Component {
 
   render () {
     return (
-        <Segment basic>
+        <Segment basic padded="very">
         <Container>
         <List ordered>
             {Object.keys(this.state.politikalar).map(key => {
