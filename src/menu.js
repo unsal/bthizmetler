@@ -1,5 +1,5 @@
 import React from 'react';
-import { Tab, Label } from 'semantic-ui-react';
+import { Tab } from 'semantic-ui-react';
 import Hizmetler from './menuHizmetler';
 import SSS from './menuSSS';
 import Ekibimiz from './menuEkibimiz';

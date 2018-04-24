@@ -50,9 +50,6 @@ componentDidMount() {
 render () {
     return (
             <Segment basic >
-
-
-
               {this.grubuYaz(this.state.yazilim)}
               {this.grubuYaz(this.state.sistemNetwork)}
               {this.grubuYaz(this.state.kurumsalCozumler)}
