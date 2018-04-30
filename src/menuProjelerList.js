@@ -8,6 +8,7 @@ import { Table, Segment, Label, Header, Icon, Dimmer, Loader } from 'semantic-ui
 // };
 
 export default class ListProjeler extends Component {
+
   constructor(props) {
     super(props);
     this.state = {
@@ -15,7 +16,7 @@ export default class ListProjeler extends Component {
       sistem:[],
       kurumsal: [],
       destek: [],
-      isLoading: true // Projeler yüklenirken çıkar
+      isLoading: true // Projeler yükleme çarkı
     }
   }
 
@@ -38,6 +39,12 @@ componentDidMount() {
       .catch(err=>{console.log(err)})
 
  }
+
+ componentDidUpdate(prevProps, prevState) {
+   if (prevState.yazilim !== this.state.yazilim) {
+      this.setState({ isLoading: false })
+   }
+   }
 
  durumRibbon = (kodu) => {
         switch(kodu) {
@@ -89,7 +96,7 @@ render () {
 
     return (
                             <Segment basic >
-                              <Dimmer inverted active={this.state.isLoading}><Loader content='Yükleniyor...'/></Dimmer>
+                              <Dimmer inverted active={this.state.isLoading}><Loader  content='Yükleniyor...'/></Dimmer>
                               {this.listGrupProjeleri(this.state.yazilim, "YAZILIM")}
                               {this.listGrupProjeleri(this.state.sistem,"SİSTEM NETWORK")}
                               {this.listGrupProjeleri(this.state.kurumsal,"KURUMSAL ÇÖZÜMLER")}
