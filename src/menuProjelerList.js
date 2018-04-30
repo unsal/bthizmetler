@@ -79,7 +79,7 @@ listGrupProjeleri = (grup, baslik) => (
                   const panels =  [
                         {
                           title: grup[key].aciklama,
-                          content: grup[key].sonuc
+                          content: { content : ( <strong>{grup[key].sonuc}</strong>) }
                         }
                       ]
 
