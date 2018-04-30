@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import axios from 'axios'
-import { Table, Segment, Label, Header, Icon, Dimmer, Loader } from 'semantic-ui-react'
+import { Table, Segment, Label, Header, Icon, Dimmer, Loader, Accordion } from 'semantic-ui-react'
 // import db from './data/projeler.json'
 
 // const messageStyle = {
@@ -71,15 +71,25 @@ listGrupProjeleri = (grup, baslik) => (
           // .sort((a, b) => a.durum > b.durum)
           .map(key => {
                   var props = {
-                    disabled: grup[key].durum==="3",
+                    // disabled: grup[key].durum==="3",
                     positive: grup[key].durum==="2",
                     error: grup[key].durum==="3"
                   };
 
+                  const panels =  [
+                        {
+                          title: grup[key].aciklama,
+                          content: grup[key].sonuc
+                        }
+                      ]
+
                   return (
                     <Table.Row {...props}>
                       <Table.Cell width="5"><strong>{grup[key].baslik}</strong></Table.Cell>
-                      <Table.Cell width="10">{grup[key].aciklama}</Table.Cell>
+                      {/* <Table.Cell width="10">{grup[key].aciklama}</Table.Cell> */}
+                      <Table.Cell width="10">
+                        <Accordion panels={panels} />
+                      </Table.Cell>
                       <Table.Cell width="5">{grup[key].birim}</Table.Cell>
                       <Table.Cell width="3">{this.durumRibbon(grup[key].durum)}</Table.Cell>
                     </Table.Row>
