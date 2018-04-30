@@ -1,9 +1,14 @@
 import React, { Component } from 'react'
 import { Grid, Menu, Segment } from 'semantic-ui-react'
-import ProjeListesi from './menuProjelerList'
+import ListProjeler from './menuProjelerList'
 
 export default class Projeler extends Component {
-  state = { activeItem: '2018' }
+
+  constructor(props) {
+    super(props);
+    this.state = { activeItem: '2018', loading: true }
+  }
+
 
   handleItemClick = (e, { name }) => this.setState({ activeItem: name })
 
@@ -22,7 +27,7 @@ export default class Projeler extends Component {
 
       <Grid.Column stretched width={12}>
          <Segment basic>
-           <ProjeListesi />
+          <ListProjeler />
          </Segment>
        </Grid.Column>
 
