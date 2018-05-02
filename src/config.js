@@ -1,6 +1,6 @@
 
 const config = {
-    apiURL: 'http://www.gfox.com:5000/projeler',
+    apiURL: 'http://www.gfox.com:5000/projelerx',
   };
 
   module.exports = config;
