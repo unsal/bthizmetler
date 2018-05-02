@@ -8,11 +8,10 @@ class App extends Component {
   render() {
     return <Segment basic>
               <Container textAlign="justified">
-
-              <Header as="h1"><Image src='/img/_logo.png' size='huge' /><Header.Content>
-                Bilgi Teknolojileri
-              </Header.Content></Header>
-              <BTMenu />
+                  <Header as="h1"><Image src='/img/_logo.png' size='huge' />
+                      <Header.Content> Bilgi Teknolojileri </Header.Content>
+                  </Header>
+                  <BTMenu />
               </Container>
           </Segment>
   }

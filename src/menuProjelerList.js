@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import axios from 'axios'
-import { Table, Segment, Label, Header, Icon, Dimmer, Loader, Accordion } from 'semantic-ui-react'
+import { Table, Segment, Label, Header, Icon, Dimmer, Loader, Accordion, Message, Popup } from 'semantic-ui-react'
+import config from './config'
 // import db from './data/projeler.json'
 
 // const messageStyle = {
@@ -16,13 +17,14 @@ export default class ListProjeler extends Component {
       sistem:[],
       kurumsal: [],
       destek: [],
-      isLoading: true // Projeler yükleme çarkı
+      isLoading: true, // Loader çarkı default açık gelsin için
+      errMessage: ""
     }
   }
 
 componentDidMount() {
 
-  const url = "http://gfox.com:5000/projeler"
+  const url = config.apiURL
   axios.get(url)
       .then(res => {
             const db = res.data;
@@ -36,11 +38,15 @@ componentDidMount() {
             this.setState ({ kurumsal });
             this.setState ({ destek });
       })
-      .catch(err=>{console.log(err)})
+      .catch(err=>{
+        this.setState({ errMessage:"Kaynak okunamıyor: "+url })
+        console.log(err)
+      })
 
  }
 
  componentDidUpdate(prevProps, prevState) {
+   //Loader çarkını kapatmak için
    if (prevState.yazilim !== this.state.yazilim) {
       this.setState({ isLoading: false })
    }
@@ -48,7 +54,6 @@ componentDidMount() {
 
  durumRibbon = (kodu) => {
         switch(kodu) {
-
           case "2": return <Label as='a' color='green' ribbon='right'><Icon name='checkmark' /></Label>; //done
           case "0": return <Label as='a' color='blue' ribbon='right'><Icon loading name='asterisk' /></Label>; //işlemde
           case "1": return <Label as='a' ribbon='right'><Icon name='pin' /></Label>; //Sıradaki
@@ -76,22 +81,31 @@ listGrupProjeleri = (grup, baslik) => (
                     error: grup[key].durum==="3"
                   };
 
-                  const panels =  [
+                  const panels = [
                         {
                           title: grup[key].aciklama,
-                          content: { content : ( <strong>{grup[key].sonuc}</strong>) }
+                          content: { content : <strong>{grup[key].sonuc}</strong>}
                         }
                       ]
 
                   return (
-                    <Table.Row {...props}>
+                    <Table.Row {...props} key={grup[key].id}>
                       <Table.Cell width="5"><strong>{grup[key].baslik}</strong></Table.Cell>
                       {/* <Table.Cell width="10">{grup[key].aciklama}</Table.Cell> */}
                       <Table.Cell width="10">
-                        <Accordion panels={panels} />
+                        <Accordion panels={panels}/>
                       </Table.Cell>
                       <Table.Cell width="5">{grup[key].birim}</Table.Cell>
-                      <Table.Cell width="3">{this.durumRibbon(grup[key].durum)}</Table.Cell>
+                      <Table.Cell width="3">
+                      <Popup trigger={this.durumRibbon(grup[key].durum)}>
+                        <Popup.Header>{grup[key].baslik}</Popup.Header>
+                        <Popup.Content> {grup[key].sonuc} </Popup.Content>
+                      </Popup>
+
+
+
+
+                      </Table.Cell>
                     </Table.Row>
                           )
                       }
@@ -103,8 +117,9 @@ listGrupProjeleri = (grup, baslik) => (
  )
 
 render () {
-
-    return (
+const html = this.state.errMessage !=="" ?
+                            <Segment basic><Message negative>{this.state.errMessage}</Message></Segment>
+                            :
                             <Segment basic >
                               <Dimmer inverted active={this.state.isLoading}><Loader  content='Yükleniyor...'/></Dimmer>
                               {this.listGrupProjeleri(this.state.yazilim, "YAZILIM")}
@@ -112,7 +127,9 @@ render () {
                               {this.listGrupProjeleri(this.state.kurumsal,"KURUMSAL ÇÖZÜMLER")}
                               {this.listGrupProjeleri(this.state.destek, "KULLANICI DESTEK")}
                             </Segment>
-            )
+
+          return html
+
           }
 }
 
