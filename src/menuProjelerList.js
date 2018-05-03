@@ -1,12 +1,14 @@
 import React, { Component } from 'react'
 import axios from 'axios'
-import { Table, Segment, Label, Header, Icon, Dimmer, Loader, Accordion, Message, Popup } from 'semantic-ui-react'
+import { Table, Segment, Label, Header, Icon, Dimmer, Loader, Accordion, Message, Button } from 'semantic-ui-react'
 import config from './config'
+
 // import db from './data/projeler.json'
 
 // const messageStyle = {
 //   marginLeft: '15px'
 // };
+
 
 export default class ListProjeler extends Component {
 
@@ -66,7 +68,9 @@ listGrupProjeleri = (grup, baslik) => (
 <Table celled color="teal" compact selectable size="small">
   <Table.Header>
     <Table.Row>
-        <Table.HeaderCell colSpan='4'><Header as='h3' textAlign='left'>{baslik}</Header></Table.HeaderCell>
+        <Table.HeaderCell colSpan='4'><Label basic>{baslik}</Label><Button floated='right' color='grey' size='mini'>
+          Ekle
+          </Button></Table.HeaderCell>
     </Table.Row>
 
   </Table.Header>
@@ -97,14 +101,11 @@ listGrupProjeleri = (grup, baslik) => (
                       </Table.Cell>
                       <Table.Cell width="5">{grup[key].birim}</Table.Cell>
                       <Table.Cell width="3">
-                      <Popup trigger={this.durumRibbon(grup[key].durum)}>
+                      {this.durumRibbon(grup[key].durum)}
+                      {/* <Popup trigger={this.durumRibbon(grup[key].durum)}>
                         <Popup.Header>{grup[key].baslik}</Popup.Header>
                         <Popup.Content> {grup[key].sonuc} </Popup.Content>
-                      </Popup>
-
-
-
-
+                      </Popup> */}
                       </Table.Cell>
                     </Table.Row>
                           )
