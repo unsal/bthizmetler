@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import axios from 'axios'
-import { Table, Segment, Label, Header, Icon, Dimmer, Loader, Accordion, Message, Button } from 'semantic-ui-react'
+import { Table, Segment, Label, Icon, Dimmer, Loader, Accordion, Message, Button } from 'semantic-ui-react'
 import config from './config'
 
 // import db from './data/projeler.json'
@@ -68,9 +68,10 @@ listGrupProjeleri = (grup, baslik) => (
 <Table celled color="teal" compact selectable size="small">
   <Table.Header>
     <Table.Row>
-        <Table.HeaderCell colSpan='4'><Label basic>{baslik}</Label><Button floated='right' color='grey' size='mini'>
-          Ekle
-          </Button></Table.HeaderCell>
+        <Table.HeaderCell colSpan='4'>
+          <Label basic>{baslik}</Label>
+          <Button floated='right' size='mini'> <Icon name='add quare' /> </Button>
+        </Table.HeaderCell>
     </Table.Row>
 
   </Table.Header>
