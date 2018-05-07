@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import BTMenu from './menu/menu';
+import Menu from './menu/Menu';
 import { Header, Container, Segment, Image } from "semantic-ui-react";
 
 
@@ -11,7 +11,7 @@ class App extends Component {
                   <Header as="h1"><Image src='/img/_logo.png' size='huge' />
                       <Header.Content> Bilgi Teknolojileri </Header.Content>
                   </Header>
-                  <BTMenu />
+                  <Menu />
               </Container>
           </Segment>
   }
