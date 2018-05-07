@@ -1,52 +1,68 @@
 import React, { Component } from 'react';
 import { Menu, Segment, Icon } from 'semantic-ui-react';
 import ProjelerAsCard from './ProjelerAsCard';
-import { Link } from 'react-router-dom'
+import ProjelerAsList from './ProjelerAsList';
 
 export default class Projeler extends Component {
 
   constructor(props) {
     super(props);
     this.state = {
-      activeItem1: '2018',
-      activeItem2: 'Yazılım',
-      loading: true
+      filtreYil: '',
+      filtreGrup: '',
+      showAs: ''
+
     }
   }
 
-  handleItemClick1 = (e, { name }) => this.setState({ activeItem1: name })
-  handleItemClick2 = (e, { name }) => this.setState({ activeItem2: name })
+  componentDidMount() {
+    this.setState({
+      filtreYil: '2018',
+      filtreGrup: 'Yazilim',
+      showAs: 'List'
+    })
+  }
 
 
+  handleItemClick1 = (e, { name }) => this.setState({ filtreYil: name })
+  handleItemClick2 = (e, { name }) => this.setState({ filtreGrup: name })
 
 FiltreYil = () => {
-    let activeItem1  = this.state.activeItem1
+    let filtreYil  = this.state.filtreYil
     return  <Menu pointing secondary size="mini">
-    <Menu.Item name='2016' active={activeItem1 === '2016'} onClick={this.handleItemClick1} />
-    <Menu.Item name='2017' active={activeItem1 === '2017'} onClick={this.handleItemClick1} />
-    <Menu.Item name='2018' active={activeItem1 === '2018'} onClick={this.handleItemClick1} />
+    <Menu.Item name='2016' active={filtreYil === '2016'} onClick={this.handleItemClick1} />
+    <Menu.Item name='2017' active={filtreYil === '2017'} onClick={this.handleItemClick1} />
+    <Menu.Item name='2018' active={filtreYil === '2018'} onClick={this.handleItemClick1} />
     <Menu.Item name='Format:' position='right'>
-        <Link to="/projeler/list"><Icon name='content'/></Link>
-        <Link to="/projeler/card"><Icon name='block layout' /></Link>
+        <Icon name='content' link onClick={()=>this.setState({showAs: 'List'})}/>
+        <Icon name='block layout' link onClick={()=>this.setState({showAs: 'Card'})}/>
     </Menu.Item>
   </Menu>
 }
 
 FiltreGrup = () => {
-    let activeItem2  = this.state.activeItem2
+    let filtreGrup  = this.state.filtreGrup
     return <Menu pointing secondary size='mini'>
-      <Menu.Item name='Yazılım' active={activeItem2 === 'Yazılım'} onClick={this.handleItemClick2} />
-      <Menu.Item name='Sistem Network' active={activeItem2 === 'Sistem Network'} onClick={this.handleItemClick2} />
-      <Menu.Item name='Kurumsal Çözümler' active={activeItem2 === 'Kurumsal Çözümler'} onClick={this.handleItemClick2} />
-      <Menu.Item name='Kullanıcı Destek' active={activeItem2 === 'Kullanıcı Destek'} onClick={this.handleItemClick2} />
+      <Menu.Item name='Yazılım' active={filtreGrup === 'Yazılım'} onClick={this.handleItemClick2} />
+      <Menu.Item name='Sistem Network' active={filtreGrup === 'Sistem Network'} onClick={this.handleItemClick2} />
+      <Menu.Item name='Kurumsal Çözümler' active={filtreGrup === 'Kurumsal Çözümler'} onClick={this.handleItemClick2} />
+      <Menu.Item name='Kullanıcı Destek' active={filtreGrup === 'Kullanıcı Destek'} onClick={this.handleItemClick2} />
     </Menu>
 }
+
+ShowAs = () => {
+  switch (this.state.showAs) {
+    case 'Card': return <ProjelerAsCard />
+    case 'List': return <ProjelerAsList />
+    default: return "Nothing to show..."
+       }
+     }
 
   render() {
     return <Segment secondary basic>
               <this.FiltreYil />
               <this.FiltreGrup />
-              <ProjelerAsCard />
+              <this.ShowAs />
           </Segment>
   }
 }
