@@ -4,7 +4,6 @@ import SSS from './menu/SSS';
 import Ekibimiz from './menu/Ekibimiz';
 import Prosedurler from './menu/Prosedurler';
 import Projeler from './menu/Projeler';
-import Envanter from './menu/Envanter';
 import { Header, Container, Segment, Image, Tab } from "semantic-ui-react";
 
 
@@ -22,7 +21,7 @@ this.setState({
     panes : [
         { menuItem: 'Hizmet Kataloğu', render: () => <Tab.Pane><Hizmetler /></Tab.Pane> },
         { menuItem: 'Projeler', render: () => <Tab.Pane><Projeler /></Tab.Pane> },
-        { menuItem: 'Envanter', render: () => <Tab.Pane><Envanter /></Tab.Pane> },
+        { menuItem: 'Envanter', render: () => <Tab.Pane>Envanter</Tab.Pane> },
         { menuItem: 'Prosedürler', render: () => <Tab.Pane><Prosedurler /></Tab.Pane> },
         { menuItem: 'Göstergeler', render: () => <Tab.Pane>Göstergeler</Tab.Pane> },
         { menuItem: 'BT', render: () => <Tab.Pane><Ekibimiz /></Tab.Pane> },

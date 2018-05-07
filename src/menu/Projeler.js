@@ -43,7 +43,7 @@ FiltreYil = () => {
 FiltreGrup = () => {
     let filtreGrup  = this.state.filtreGrup
     return <Menu pointing secondary size='mini'>
-      <Menu.Item name='Yazılım' active={filtreGrup === 'Yazılım'} onClick={this.handleItemClick2} />
+      <Menu.Item name='Yazilim' active={filtreGrup === 'Yazilim'} onClick={this.handleItemClick2} />
       <Menu.Item name='Sistem Network' active={filtreGrup === 'Sistem Network'} onClick={this.handleItemClick2} />
       <Menu.Item name='Kurumsal Çözümler' active={filtreGrup === 'Kurumsal Çözümler'} onClick={this.handleItemClick2} />
       <Menu.Item name='Kullanıcı Destek' active={filtreGrup === 'Kullanıcı Destek'} onClick={this.handleItemClick2} />
@@ -52,8 +52,8 @@ FiltreGrup = () => {
 
 ShowAs = () => {
   switch (this.state.showAs) {
-    case 'Card': return <ProjelerAsCard />
-    case 'List': return <ProjelerAsList />
+    case 'Card': return <ProjelerAsCard yil={this.state.filtreYil} />
+    case 'List': return <ProjelerAsList grup={this.state.filtreGrup} />
     default: return "Nothing to show..."
        }
      }

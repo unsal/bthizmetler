@@ -9,7 +9,6 @@ import Hizmetler from './menu/Hizmetler';
 import Projeler from './menu/Projeler';
 import ProjelerAsCard from './menu/ProjelerAsCard';
 import ProjelerAsList from './menu/ProjelerAsList';
-import Envanter from './menu/Envanter';
 import Ekibimiz from './menu/Ekibimiz';
 import SSS from './menu/SSS';
 
@@ -24,7 +23,6 @@ ReactDOM.render(
         <Route exact path='/projeler' component={Projeler} />
         <Route exact path='/projeler/card' component={ProjelerAsCard} />
         <Route exact path='/projeler/list' component={ProjelerAsList} />
-        <Route exact path='/envanter' component={Envanter} />
         <Route exact path='/ekibimiz' component={Ekibimiz} />
         <Route exact path='/sss' component={SSS} />
     </Switch>
