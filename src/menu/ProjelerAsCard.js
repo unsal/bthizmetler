@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import axios from 'axios'
-import { Segment, Dimmer, Loader, Message, Card } from 'semantic-ui-react'
+import { Segment, Dimmer, Loader, Message, Card, Label, Icon } from 'semantic-ui-react'
 import config from '../config'
 
 // import db from './data/projeler.json'
@@ -20,7 +20,9 @@ export default class ProjelerAsCard extends Component {
       kurumsal: [],
       destek: [],
       isLoading: true, // Loader çarkı default açık gelsin için
-      errMessage: ""
+      errMessage: "",
+      yil: props.yil,
+      grup: props.grup
     }
   }
 
@@ -39,6 +41,7 @@ componentDidMount() {
             this.setState ({ sistem  });
             this.setState ({ kurumsal });
             this.setState ({ destek });
+            console.log(this.state.yil+" "+this.state.grup)
       })
       .catch(err=>{
         this.setState({ errMessage:"Kaynak okunamıyor: "+url })
@@ -54,19 +57,31 @@ componentDidMount() {
    }
    }
 
-grupProjeleri = (grup, baslik, color) => (
+Corner = (props) => {
+    switch(props.kodu) {
+      case "2": return <Label color='green'  corner='right'><Icon name='checkmark' /></Label>; //done
+      case "0": return <Label color='blue'   corner='right'><Icon loading name='asterisk' /></Label>; //işlemde
+      case "1": return <Label                corner='right'><Icon name='pin' /></Label>; //Sıradaki
+      case "3": return <Label color='red'    corner='right'><Icon name='send outline' /></Label>; //iptal
+      default: return "Belirsiz";
+  }
+}
+
+grupProjeleri = (grup, baslik) => (
 <Card.Group itemsPerRow={4}>
   {
     Object.keys(grup)
           // .sort((a, b) => a.durum > b.durum)
           .map(key => {
                   return (
-                    <Card raised color={color}
-                      header={grup[key].baslik}
-                      meta={grup[key].birim}
-                      description={grup[key].aciklama}
-                      label={{ as: 'a', corner: 'left', icon: 'heart' }}
-                    >
+                    <Card>
+                    <Card.Content>
+                      <this.Corner kodu={grup[key].durum} />
+                      <Card.Header>{grup[key].baslik}</Card.Header>
+                      <Card.Meta>{grup[key].birim}</Card.Meta>
+                      <Card.Description>{grup[key].aciklama}</Card.Description>
+
+                    </Card.Content>
                     </Card>
                           )
                       }
@@ -83,10 +98,10 @@ const html = this.state.errMessage !=="" ?
                             :
                             <Segment basic >
                               <Dimmer inverted active={this.state.isLoading}><Loader  content='Yükleniyor...'/></Dimmer>
-                              {this.grupProjeleri(this.state.yazilim, "YAZILIM",'orange')}
-                              {this.grupProjeleri(this.state.sistem,"SİSTEM NETWORK",'green')}
-                              {this.grupProjeleri(this.state.kurumsal,"KURUMSAL ÇÖZÜMLER",'yellow')}
-                              {this.grupProjeleri(this.state.destek, "KULLANICI DESTEK",'teal')}
+                              {this.grupProjeleri(this.state.yazilim, "YAZILIM")}
+                              {this.grupProjeleri(this.state.sistem,"SİSTEM NETWORK")}
+                              {this.grupProjeleri(this.state.kurumsal,"KURUMSAL ÇÖZÜMLER")}
+                              {this.grupProjeleri(this.state.destek, "KULLANICI DESTEK")}
                             </Segment>
 
           return html

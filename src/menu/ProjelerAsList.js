@@ -54,7 +54,7 @@ componentDidMount() {
    }
    }
 
- durumRibbon = (kodu) => {
+ Ribbon = (kodu) => {
         switch(kodu) {
           case "2": return <Label as='a' color='green' ribbon='right'><Icon name='checkmark' /></Label>; //done
           case "0": return <Label as='a' color='blue' ribbon='right'><Icon loading name='asterisk' /></Label>; //işlemde
@@ -65,7 +65,7 @@ componentDidMount() {
     }
 
 listGrupProjeleri = (grup, baslik) => (
-<Table celled color="teal" compact selectable size="small">
+<Table celled compact selectable size="small">
   <Table.Header>
     <Table.Row>
         <Table.HeaderCell colSpan='4'>
@@ -102,8 +102,8 @@ listGrupProjeleri = (grup, baslik) => (
                       </Table.Cell>
                       <Table.Cell width="5">{grup[key].birim}</Table.Cell>
                       <Table.Cell width="3">
-                      {this.durumRibbon(grup[key].durum)}
-                      {/* <Popup trigger={this.durumRibbon(grup[key].durum)}>
+                      {this.Ribbon(grup[key].durum)}
+                      {/* <Popup trigger={this.Ribbon(grup[key].durum)}>
                         <Popup.Header>{grup[key].baslik}</Popup.Header>
                         <Popup.Content> {grup[key].sonuc} </Popup.Content>
                       </Popup> */}

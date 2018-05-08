@@ -19,20 +19,20 @@ export default class Projeler extends Component {
     this.setState({
       filtreYil: '2018',
       filtreGrup: 'Yazilim',
-      showAs: 'List'
+      showAs: 'Card'
     })
   }
 
 
-  handleItemClick1 = (e, { name }) => this.setState({ filtreYil: name })
-  handleItemClick2 = (e, { name }) => this.setState({ filtreGrup: name })
+  handleClickYil = (e, { name }) => this.setState({ filtreYil: name })
+  handleClickGrup = (e, { name }) => this.setState({ filtreGrup: name })
 
 FiltreYil = () => {
     let filtreYil  = this.state.filtreYil
     return  <Menu pointing secondary size="mini">
-    <Menu.Item name='2016' active={filtreYil === '2016'} onClick={this.handleItemClick1} />
-    <Menu.Item name='2017' active={filtreYil === '2017'} onClick={this.handleItemClick1} />
-    <Menu.Item name='2018' active={filtreYil === '2018'} onClick={this.handleItemClick1} />
+    <Menu.Item name='2016' active={filtreYil === '2016'} onClick={this.handleClickYil} />
+    <Menu.Item name='2017' active={filtreYil === '2017'} onClick={this.handleClickYil} />
+    <Menu.Item name='2018' active={filtreYil === '2018'} onClick={this.handleClickYil} />
     <Menu.Item name='Format:' position='right'>
         <Icon name='content' link onClick={()=>this.setState({showAs: 'List'})}/>
         <Icon name='block layout' link onClick={()=>this.setState({showAs: 'Card'})}/>
@@ -43,17 +43,19 @@ FiltreYil = () => {
 FiltreGrup = () => {
     let filtreGrup  = this.state.filtreGrup
     return <Menu pointing secondary size='mini'>
-      <Menu.Item name='Yazilim' active={filtreGrup === 'Yazilim'} onClick={this.handleItemClick2} />
-      <Menu.Item name='Sistem Network' active={filtreGrup === 'Sistem Network'} onClick={this.handleItemClick2} />
-      <Menu.Item name='Kurumsal Çözümler' active={filtreGrup === 'Kurumsal Çözümler'} onClick={this.handleItemClick2} />
-      <Menu.Item name='Kullanıcı Destek' active={filtreGrup === 'Kullanıcı Destek'} onClick={this.handleItemClick2} />
+      <Menu.Item name='Yazilim' active={filtreGrup === 'Yazilim'} onClick={this.handleClickGrup} />
+      <Menu.Item name='Sistem Network' active={filtreGrup === 'Sistem Network'} onClick={this.handleClickGrup} />
+      <Menu.Item name='Kurumsal Çözümler' active={filtreGrup === 'Kurumsal Çözümler'} onClick={this.handleClickGrup} />
+      <Menu.Item name='Kullanıcı Destek' active={filtreGrup === 'Kullanıcı Destek'} onClick={this.handleClickGrup} />
     </Menu>
 }
 
 ShowAs = () => {
+  const yil =this.state.filtreYil;
+  const grup=this.state.filtreGrup;
   switch (this.state.showAs) {
-    case 'Card': return <ProjelerAsCard yil={this.state.filtreYil} />
-    case 'List': return <ProjelerAsList grup={this.state.filtreGrup} />
+    case 'Card': return <ProjelerAsCard yil={yil} grup={grup} />
+    case 'List': return <ProjelerAsList yil={yil} grup={grup} />
     default: return "Nothing to show..."
        }
      }
