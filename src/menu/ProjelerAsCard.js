@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import axios from 'axios'
 import { Segment, Dimmer, Loader, Message, Card, Label, Icon } from 'semantic-ui-react'
 import config from '../config'
+//redux
+import { connect } from 'react-redux';
 
 // import db from './data/projeler.json'
 
@@ -10,7 +12,7 @@ import config from '../config'
 // };
 
 
-export default class ProjelerAsCard extends Component {
+class ProjelerAsCard extends Component {
 
   constructor(props) {
     super(props);
@@ -20,15 +22,14 @@ export default class ProjelerAsCard extends Component {
       kurumsal: [],
       destek: [],
       isLoading: true, // Loader çarkı default açık gelsin için
-      errMessage: "",
-      yil: props.yil,
-      grup: props.grup
+      errMessage: ""
     }
   }
 
 componentDidMount() {
 
-  const url = config.apiURL
+  const url = config.apiURL;
+
   axios.get(url)
       .then(res => {
             const db = res.data;
@@ -41,7 +42,6 @@ componentDidMount() {
             this.setState ({ sistem  });
             this.setState ({ kurumsal });
             this.setState ({ destek });
-            console.log(this.state.yil+" "+this.state.grup)
       })
       .catch(err=>{
         this.setState({ errMessage:"Kaynak okunamıyor: "+url })
@@ -79,7 +79,8 @@ grupProjeleri = (grup, baslik) => (
                       <this.Corner kodu={grup[key].durum} />
                       <Card.Header>{grup[key].baslik}</Card.Header>
                       <Card.Meta>{grup[key].birim}</Card.Meta>
-                      <Card.Description>{grup[key].aciklama}</Card.Description>
+                      <Card.Description>{grup[key].aciklama}
+                      {" "}{this.props.yil}{" "}{this.props.grup}</Card.Description>
 
                     </Card.Content>
                     </Card>
@@ -109,3 +110,5 @@ const html = this.state.errMessage !=="" ?
           }
 }
 
+const mapStateToProps = state => ({ yil: state.yil, grup: state.grup });
+export default connect(mapStateToProps)(ProjelerAsCard);

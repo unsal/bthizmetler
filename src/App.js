@@ -6,6 +6,9 @@ import Prosedurler from './menu/Prosedurler';
 import Projeler from './menu/Projeler';
 import { Header, Container, Segment, Image, Tab } from "semantic-ui-react";
 
+//redux
+import { connect } from 'react-redux';
+
 
 class App extends Component {
 constructor(props) {
@@ -35,7 +38,7 @@ this.setState({
     return <Segment tertiary basic>
               <Container textAlign="justified">
                   <Header as="h1"><Image src='/img/_logo.png' size='huge' />
-                      <Header.Content> Bilgi Teknolojileri </Header.Content>
+                      <Header.Content> Bilgi Teknolojileri</Header.Content>
                   </Header>
 
                   <Tab panes={this.state.panes} defaultActiveIndex='0' />
@@ -45,4 +48,8 @@ this.setState({
   }
 }
 
-export default App;
+const mapStateToProps = state => ({ yil: state.yil, grup: state.grup });
+
+export default connect(mapStateToProps)(App);
+
+// export default App;

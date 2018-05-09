@@ -11,11 +11,15 @@ import ProjelerAsCard from './menu/ProjelerAsCard';
 import ProjelerAsList from './menu/ProjelerAsList';
 import Ekibimiz from './menu/Ekibimiz';
 import SSS from './menu/SSS';
+//Redux
+import { Provider } from 'react-redux';
+import { store } from './redux/store';
 
 
 // ReactDOM.render(<App />, document.getElementById('root'));
 
 ReactDOM.render(
+<Provider store={store}>
 <Router>
     <Switch>
         <Route exact path='/' component={App} />
@@ -27,6 +31,7 @@ ReactDOM.render(
         <Route exact path='/sss' component={SSS} />
     </Switch>
 </Router>
+</Provider >
 , document.getElementById('root'));
 
 // registerServiceWorker();
