@@ -5,7 +5,7 @@ import ProjelerAsList from './ProjelerAsList';
 //redux
 import { connect } from 'react-redux';
 import { store } from '../redux/store';
-import { updateStoreYil, updateStoreGrup } from '../redux/actions';
+import { updateStoreYil, updateStoreGrup, updateStoreURLMW, updateStoreDataMW } from '../redux/actions';
 
 class Projeler extends Component {
 
@@ -24,8 +24,20 @@ class Projeler extends Component {
   }
 
 
-  handleClickYil = (e, { name }) => store.dispatch(updateStoreYil(name));
-  handleClickGrup = (e, { name }) => store.dispatch(updateStoreGrup(name));
+  handleClickYil = (e, { name }) => {
+                    const {yil, grup, url} = this.props;
+                    store.dispatch(updateStoreYil(name));
+                    console.log(name);
+                    console.log(yil);
+                    store.dispatch(updateStoreURLMW(yil, grup));
+                    store.dispatch(updateStoreDataMW(url))
+                  }
+  handleClickGrup = (e, { name }) => {
+                    store.dispatch(updateStoreGrup(name));
+                    console.log(this.props.grup);
+                    store.dispatch(updateStoreURLMW(this.props.yil, this.props.grup));
+                    store.dispatch(updateStoreDataMW(this.props.url))
+                  }
 
 yil = () => {
     const yil  = this.props.yil;
@@ -43,10 +55,10 @@ yil = () => {
 grup = () => {
     const _grup  = this.props.grup;
     return <Menu pointing secondary size='mini'>
-      <Menu.Item name='Yazilim' active={_grup === 'yazilim'} onClick={this.handleClickGrup} />
-      <Menu.Item name='Sistem Network' active={_grup === 'sistem network'} onClick={this.handleClickGrup} />
-      <Menu.Item name='Kurumsal Çözümler' active={_grup === 'kurumsal çözümler'} onClick={this.handleClickGrup} />
-      <Menu.Item name='Kullanıcı Destek' active={_grup === 'kullanıcı destek'} onClick={this.handleClickGrup} />
+      <Menu.Item name='yazilim' active={_grup === 'yazilim'} onClick={this.handleClickGrup} />
+      <Menu.Item name='sistem' active={_grup === 'sistem'} onClick={this.handleClickGrup} />
+      <Menu.Item name='kurumsal' active={_grup === 'kurumsal'} onClick={this.handleClickGrup} />
+      <Menu.Item name='destek' active={_grup === 'destek'} onClick={this.handleClickGrup} />
     </Menu>
 }
 
@@ -67,5 +79,5 @@ ShowAs = () => {
   }
 }
 
-const mapStateToProps = state => ({ yil: state.yil, grup: state.grup });
+const mapStateToProps = (state) => ({ yil: state.yil, grup: state.grup, url: state.url });
 export default connect(mapStateToProps)(Projeler);

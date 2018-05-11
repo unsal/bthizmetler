@@ -54,7 +54,7 @@ this.setState({
   }
 }
 
-const mapStateToProps = state => ({ yil: state.yil, grup: state.grup, url: state.url, data: state.data });
+const mapStateToProps = state => ({ yil: state.yil, grup: state.grup, url: state.url });
 export default connect(mapStateToProps)(App);
 
 // export default App;

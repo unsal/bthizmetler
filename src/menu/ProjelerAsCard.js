@@ -1,11 +1,9 @@
 import React, { Component } from 'react'
-import axios from 'axios'
 import { Segment, Dimmer, Loader, Message, Card, Label, Icon } from 'semantic-ui-react'
-import config from '../config'
 //redux
 import { connect } from 'react-redux';
+import { updateStoreDataMW } from '../redux/actions';
 import { store } from '../redux/store';
-import { updateStoreData, updateStoreURL } from '../redux/actions';
 
 // import db from './data/projeler.json'
 
@@ -19,44 +17,28 @@ class ProjelerAsCard extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      url : "",
+      didMount : false, //Loader çarkı gösterim state kontrolü için
       isLoading: true, // Loader çarkı default açık gelsin için
       errMessage: ""
     }
   }
 
+
+
 componentDidMount() {
+  this.setState({ didMount: true });
+  store.dispatch(updateStoreDataMW(this.props.url));
 
-  this.loadDataToStore();
-
+  // dataToStore(this.props.url);
  }
+
 
  componentDidUpdate(prevProps, prevState) {
    //Loader çarkını kapatmak için
-   if (prevState.url !== this.state.url) {
+   if (prevState.didMount !== this.state.didMount) {
       this.setState({ isLoading: false })
    }
    }
-
-loadDataToStore() {
-
-  const yil = this.props.yil;
-  const grup = this.props.grup.toLowerCase();
-
-  const url = config.apiURL+"/"+yil+"/"+grup;
-  this.setState({ url });
-  store.dispatch(updateStoreURL(url));
-
-  axios.get(url)
-      .then(res => {
-            const data = res.data.projeler;
-            store.dispatch(updateStoreData(data))
-      })
-      .catch(err=>{
-        this.setState({ errMessage: err })
-        console.log(err)
-      })
-}
 
 
 Corner = (props) => {
@@ -90,7 +72,7 @@ return <Card.Group itemsPerRow={4}>
                           )
                       }
               ):
-    <Label basic>NULL OBJECT</Label>
+    <Label basic>NULL Data Object</Label>
   }
 
 </Card.Group>
