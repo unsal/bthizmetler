@@ -47,7 +47,7 @@ class Hizmetler extends Component {
 
   render() {
     const misyon = this.state.misyon;
-    const Misyon = () => Object.keys(misyon).map(key => <Segment basic><span className="misyon">{misyon[key]}</span></Segment>);
+    const Misyon = () => Object.keys(misyon).map(key => <Segment key={key} basic><span className="misyon">{misyon[key]}</span></Segment>);
 
     return <Segment basic>
     <Container textAlign="justified">

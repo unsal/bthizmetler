@@ -15,7 +15,7 @@ const reducer = (state = initialState, action) => {
 	switch (action.type) {
             case STORE_YIL:  return { ...state, yil:  action.yil };
             case STORE_GRUP: return { ...state, grup: action.grup};
-            case STORE_URL:  return { ...state, url:  action.url };
+            case STORE_URL:  return { ...state, url:  config.apiURL+"/"+state.yil+"/"+state.grup.toLowerCase() };
             case STORE_DATA: return { ...state, data: action.data};
             default: return state;
         }

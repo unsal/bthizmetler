@@ -2,10 +2,11 @@ import React, { Component } from 'react';
 import { Menu, Segment, Icon } from 'semantic-ui-react';
 import ProjelerAsCard from './ProjelerAsCard';
 import ProjelerAsList from './ProjelerAsList';
+
 //redux
 import { connect } from 'react-redux';
 import { store } from '../redux/store';
-import { updateStoreYil, updateStoreGrup, updateStoreURLMW, updateStoreDataMW } from '../redux/actions';
+import { updateStoreYil, updateStoreGrup, updateStoreURL, updateStoreDataMW } from '../redux/actions';
 
 class Projeler extends Component {
 
@@ -25,18 +26,14 @@ class Projeler extends Component {
 
 
   handleClickYil = (e, { name }) => {
-                    const {yil, grup, url} = this.props;
                     store.dispatch(updateStoreYil(name));
-                    console.log(name);
-                    console.log(yil);
-                    store.dispatch(updateStoreURLMW(yil, grup));
-                    store.dispatch(updateStoreDataMW(url))
+                    store.dispatch(updateStoreURL());
+                    store.dispatch(updateStoreDataMW())
                   }
   handleClickGrup = (e, { name }) => {
                     store.dispatch(updateStoreGrup(name));
-                    console.log(this.props.grup);
-                    store.dispatch(updateStoreURLMW(this.props.yil, this.props.grup));
-                    store.dispatch(updateStoreDataMW(this.props.url))
+                    store.dispatch(updateStoreURL());
+                    store.dispatch(updateStoreDataMW())
                   }
 
 yil = () => {

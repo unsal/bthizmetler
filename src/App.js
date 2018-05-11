@@ -35,14 +35,15 @@ this.setState({
 }
 
   render() {
+    const {yil, grup, url} = this.props;
     return <Segment tertiary basic>
               <Container textAlign="justified">
                   <Header as="h1"><Image src='/img/_logo.png' size='huge' />
                       <Header.Content>
                           Bilgi Teknolojileri
-                          <Label size='mini' basic>{this.props.yil}</Label>
-                          <Label size='mini' basic>{this.props.grup}</Label>
-                          <Label size='mini' basic><a href={this.props.url} target='_blank'>{this.props.url}</a></Label>
+                          <Label size='mini' basic>{yil}</Label>
+                          <Label size='mini' basic>{grup}</Label>
+                          <Label size='mini' basic><a href={url} target='_blank'>{url}</a></Label>
 
                      </Header.Content>
                   </Header>

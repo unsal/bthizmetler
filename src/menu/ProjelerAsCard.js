@@ -27,7 +27,7 @@ class ProjelerAsCard extends Component {
 
 componentDidMount() {
   this.setState({ didMount: true });
-  store.dispatch(updateStoreDataMW(this.props.url));
+  store.dispatch(updateStoreDataMW());
 
   // dataToStore(this.props.url);
  }
@@ -59,7 +59,7 @@ return <Card.Group itemsPerRow={4}>
     Object.keys(props.data)
           .map(key => {
                   return (
-                    <Card>
+                    <Card key={key}>
                     <Card.Content>
                       <this.Corner kodu={props.data[key].durum} />
                       <Card.Header>{props.data[key].baslik}</Card.Header>
@@ -72,7 +72,7 @@ return <Card.Group itemsPerRow={4}>
                           )
                       }
               ):
-    <Label basic>NULL Data Object</Label>
+    <Icon  name='remove' />
   }
 
 </Card.Group>
