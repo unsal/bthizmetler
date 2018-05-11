@@ -4,7 +4,7 @@ import SSS from './menu/SSS';
 import Ekibimiz from './menu/Ekibimiz';
 import Prosedurler from './menu/Prosedurler';
 import Projeler from './menu/Projeler';
-import { Header, Container, Segment, Image, Tab } from "semantic-ui-react";
+import { Header, Container, Segment, Image, Tab, Label } from "semantic-ui-react";
 
 //redux
 import { connect } from 'react-redux';
@@ -38,7 +38,13 @@ this.setState({
     return <Segment tertiary basic>
               <Container textAlign="justified">
                   <Header as="h1"><Image src='/img/_logo.png' size='huge' />
-                      <Header.Content> Bilgi Teknolojileri</Header.Content>
+                      <Header.Content>
+                          Bilgi Teknolojileri
+                          <Label size='mini' basic>{this.props.yil}</Label>
+                          <Label size='mini' basic>{this.props.grup}</Label>
+                          <Label size='mini' basic><a href={this.props.url} target='_blank'>{this.props.url}</a></Label>
+
+                     </Header.Content>
                   </Header>
 
                   <Tab panes={this.state.panes} defaultActiveIndex='0' />
@@ -48,8 +54,7 @@ this.setState({
   }
 }
 
-const mapStateToProps = state => ({ yil: state.yil, grup: state.grup });
-
+const mapStateToProps = state => ({ yil: state.yil, grup: state.grup, url: state.url, data: state.data });
 export default connect(mapStateToProps)(App);
 
 // export default App;

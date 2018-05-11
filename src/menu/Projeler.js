@@ -41,12 +41,12 @@ yil = () => {
 }
 
 grup = () => {
-    const grup  = this.props.grup;
+    const _grup  = this.props.grup;
     return <Menu pointing secondary size='mini'>
-      <Menu.Item name='Yazilim' active={grup === 'Yazilim'} onClick={this.handleClickGrup} />
-      <Menu.Item name='Sistem Network' active={grup === 'Sistem Network'} onClick={this.handleClickGrup} />
-      <Menu.Item name='Kurumsal Çözümler' active={grup === 'Kurumsal Çözümler'} onClick={this.handleClickGrup} />
-      <Menu.Item name='Kullanıcı Destek' active={grup === 'Kullanıcı Destek'} onClick={this.handleClickGrup} />
+      <Menu.Item name='Yazilim' active={_grup === 'yazilim'} onClick={this.handleClickGrup} />
+      <Menu.Item name='Sistem Network' active={_grup === 'sistem network'} onClick={this.handleClickGrup} />
+      <Menu.Item name='Kurumsal Çözümler' active={_grup === 'kurumsal çözümler'} onClick={this.handleClickGrup} />
+      <Menu.Item name='Kullanıcı Destek' active={_grup === 'kullanıcı destek'} onClick={this.handleClickGrup} />
     </Menu>
 }
 

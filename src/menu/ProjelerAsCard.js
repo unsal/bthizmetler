@@ -4,6 +4,8 @@ import { Segment, Dimmer, Loader, Message, Card, Label, Icon } from 'semantic-ui
 import config from '../config'
 //redux
 import { connect } from 'react-redux';
+import { store } from '../redux/store';
+import { updateStoreData, updateStoreURL } from '../redux/actions';
 
 // import db from './data/projeler.json'
 
@@ -17,10 +19,7 @@ class ProjelerAsCard extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      yazilim: [],
-      sistem:[],
-      kurumsal: [],
-      destek: [],
+      url : "",
       isLoading: true, // Loader çarkı default açık gelsin için
       errMessage: ""
     }
@@ -28,34 +27,37 @@ class ProjelerAsCard extends Component {
 
 componentDidMount() {
 
-  const url = config.apiURL;
-
-  axios.get(url)
-      .then(res => {
-            const db = res.data;
-            const yazilim = db.projeler._2018.yazilim;
-            const sistem = db.projeler._2018.sistem;
-            const kurumsal = db.projeler._2018.kurumsal;
-            const destek = db.projeler._2018.destek;
-
-            this.setState ({ yazilim });
-            this.setState ({ sistem  });
-            this.setState ({ kurumsal });
-            this.setState ({ destek });
-      })
-      .catch(err=>{
-        this.setState({ errMessage:"Kaynak okunamıyor: "+url })
-        console.log(err)
-      })
+  this.loadDataToStore();
 
  }
 
  componentDidUpdate(prevProps, prevState) {
    //Loader çarkını kapatmak için
-   if (prevState.yazilim !== this.state.yazilim) {
+   if (prevState.url !== this.state.url) {
       this.setState({ isLoading: false })
    }
    }
+
+loadDataToStore() {
+
+  const yil = this.props.yil;
+  const grup = this.props.grup.toLowerCase();
+
+  const url = config.apiURL+"/"+yil+"/"+grup;
+  this.setState({ url });
+  store.dispatch(updateStoreURL(url));
+
+  axios.get(url)
+      .then(res => {
+            const data = res.data.projeler;
+            store.dispatch(updateStoreData(data))
+      })
+      .catch(err=>{
+        this.setState({ errMessage: err })
+        console.log(err)
+      })
+}
+
 
 Corner = (props) => {
     switch(props.kodu) {
@@ -67,42 +69,40 @@ Corner = (props) => {
   }
 }
 
-grupProjeleri = (grup, baslik) => (
-<Card.Group itemsPerRow={4}>
-  {
-    Object.keys(grup)
-          // .sort((a, b) => a.durum > b.durum)
+ListProjeler = (props) => {
+
+const data = props.data;
+return <Card.Group itemsPerRow={4}>
+  { data?
+    Object.keys(props.data)
           .map(key => {
                   return (
                     <Card>
                     <Card.Content>
-                      <this.Corner kodu={grup[key].durum} />
-                      <Card.Header>{grup[key].baslik}</Card.Header>
-                      <Card.Meta>{grup[key].birim}</Card.Meta>
-                      <Card.Description>{grup[key].aciklama}
-                      {" "}{this.props.yil}{" "}{this.props.grup}</Card.Description>
+                      <this.Corner kodu={props.data[key].durum} />
+                      <Card.Header>{props.data[key].baslik}</Card.Header>
+                      <Card.Meta>{props.data[key].birim}</Card.Meta>
+                      <Card.Description>{props.data[key].aciklama}
+                    </Card.Description>
 
                     </Card.Content>
                     </Card>
                           )
                       }
-              )
+              ):
+    <Label basic>NULL OBJECT</Label>
   }
 
 </Card.Group>
 
- )
-
+}
 render () {
 const html = this.state.errMessage !=="" ?
                             <Segment basic><Message negative>{this.state.errMessage}</Message></Segment>
                             :
                             <Segment basic >
                               <Dimmer inverted active={this.state.isLoading}><Loader  content='Yükleniyor...'/></Dimmer>
-                              {this.grupProjeleri(this.state.yazilim, "YAZILIM")}
-                              {this.grupProjeleri(this.state.sistem,"SİSTEM NETWORK")}
-                              {this.grupProjeleri(this.state.kurumsal,"KURUMSAL ÇÖZÜMLER")}
-                              {this.grupProjeleri(this.state.destek, "KULLANICI DESTEK")}
+                              <this.ListProjeler data={this.props.data} />
                             </Segment>
 
           return html
@@ -110,5 +110,5 @@ const html = this.state.errMessage !=="" ?
           }
 }
 
-const mapStateToProps = state => ({ yil: state.yil, grup: state.grup });
+const mapStateToProps = state => ({ yil: state.yil, grup: state.grup, url: state.url, data: state.data });
 export default connect(mapStateToProps)(ProjelerAsCard);
