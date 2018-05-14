@@ -1,49 +1,39 @@
+import React from 'react'
+import { Modal, Icon, Form } from 'semantic-ui-react'
 
-import React, { Component } from 'react'
-import { Popup, Button, Header, Image, Modal } from 'semantic-ui-react'
+const FormFields = (props) => {
+const mevcutZaman = new Date().toLocaleString();
 
-export default class FormProjeler extends Component {
-    state = { open: false }
+const data = props.data?props.data:[];
+const yeni = data.length === 0;
 
-    show = dimmer => () => this.setState({ dimmer, open: true })
-    close = () => this.setState({ open: false })
+ return <Form size="mini">
+    <Form.Input fluid label='Proje Adı' placeholder="Proje Adı" value={data.baslik} />
+    <Form.Group widths='equal' >
+          <Form.Input fluid label='Proje Yılı' placeholder="Yıl" value={data.yil} />
+          <Form.Input fluid label='Proje Grubu' placeholder="GRubu" value={data.grup} />
+          <Form.Select fluid label='Talep Eden Birim' options={["BT","IK","FI"]} placeholder='Birim' />
+    </Form.Group>
+    <Form.TextArea label='Açıklama' placeholder='Açıklama' value={data.aciklama} />
+    <Form.Select fluid label='Durum' options={["Tamam","İşlemde","Sırada", "Ertelendi"]} placeholder='Durum' />
+    <Form.TextArea label='Sonuç' placeholder='Sonuç' value={data.sonuc} />
+    <Form.Input fluid label='Oluşturulma Tarihi' placeholder="Tarih" value={!yeni?data.zamandamgasi:mevcutZaman} />
+   <Form.Group>
+     <Form.Button primary>{props.baslik}</Form.Button>
+      {!yeni?<Form.Button negative>Sil</Form.Button>:<span />}
+     <Form.Button >Vazgeç</Form.Button>
+   </Form.Group>
+  </Form>
+}
 
-    render() {
-      const { open, dimmer } = this.state
 
-      return (
-        <div>
-          <Button onClick={this.show(true)}>Default</Button>
-          <Button onClick={this.show('inverted')}>Inverted</Button>
-          <Button onClick={this.show('blurring')}>Blurring</Button>
-          <Popup trigger={<Button onClick={this.show(false)}>None</Button>}>
-            <Popup.Header>Heads up!</Popup.Header>
-            <Popup.Content>
-              By default, a Modal closes when escape is pressed or when the dimmer is
-              clicked. Setting the dimmer to "None" (dimmer={'{'}false{'}'}) means that there is no
-              dimmer to click so clicking outside won't close the Modal. To close on
-              outside click when there's no dimmer, you can pass the "closeOnDocumentClick" prop.
-            </Popup.Content>
-          </Popup>
+const ProjelerForm = (props, dimmer) => (
+  <Modal dimmer='blurring' trigger={<Icon name={props.icon} size="large" link />} >
+    <Modal.Header>{props.baslik}</Modal.Header>
+    <Modal.Content>
+      <Modal.Description> <FormFields data={props.data} baslik={props.baslik}/> </Modal.Description>
+    </Modal.Content>
+  </Modal>
+)
 
-          <Modal dimmer={dimmer} open={open} onClose={this.close}>
-            <Modal.Header>Select a Photo</Modal.Header>
-            <Modal.Content image>
-              <Image wrapped size='medium' src='/assets/images/avatar/large/rachel.png' />
-              <Modal.Description>
-                <Header>Default Profile Image</Header>
-                <p>We've found the following gravatar image associated with your e-mail address.</p>
-                <p>Is it okay to use this photo?</p>
-              </Modal.Description>
-            </Modal.Content>
-            <Modal.Actions>
-              <Button color='black' onClick={this.close}>
-                Nope
-              </Button>
-              <Button positive icon='checkmark' labelPosition='right' content="Yep, that's me" onClick={this.close} />
-            </Modal.Actions>
-          </Modal>
-        </div>
-      )
-    }
-  }
+export default ProjelerForm;;

@@ -31,6 +31,7 @@
     ],
     "sistem_network": [
       { "hizmet": "Internet Hizmetleri", "link": "#" },
+      { "hizmet": "Wifi & Eduroam Hizmeti", "link": "#" },
       { "hizmet": "Ağ Hizmetleri", "link": "#" },
       { "hizmet": "Bilgi Güvenliği", "link": "#" },
       { "hizmet": "Antivirüs", "link": "#" },

@@ -4,11 +4,11 @@ import SSS from './menu/SSS';
 import Ekibimiz from './menu/Ekibimiz';
 import Prosedurler from './menu/Prosedurler';
 import Projeler from './menu/Projeler';
-import { Header, Container, Segment, Image, Tab, Label } from "semantic-ui-react";
-
-//redux
+import Home from './menu/Home';
+import { Header, Container, Segment, Image, Tab, Popup } from "semantic-ui-react";
 import { connect } from 'react-redux';
 
+//redux
 
 class App extends Component {
 constructor(props) {
@@ -22,8 +22,9 @@ constructor(props) {
 componentDidMount() {
 this.setState({
     panes : [
+        { menuItem: 'Ana Sayfa', render: () => <Tab.Pane><Home /></Tab.Pane> },
         { menuItem: 'Hizmet Kataloğu', render: () => <Tab.Pane><Hizmetler /></Tab.Pane> },
-        { menuItem: 'Projeler', render: () => <Tab.Pane><Projeler /></Tab.Pane> },
+        { menuItem: 'Projelerimiz', render: () => <Tab.Pane><Projeler /></Tab.Pane> },
         { menuItem: 'Envanter', render: () => <Tab.Pane>Envanter</Tab.Pane> },
         { menuItem: 'Prosedürler', render: () => <Tab.Pane><Prosedurler /></Tab.Pane> },
         { menuItem: 'Göstergeler', render: () => <Tab.Pane>Göstergeler</Tab.Pane> },
@@ -34,17 +35,20 @@ this.setState({
 
 }
 
+myPopup = () => {
+ return <Popup
+    trigger={<Image src='/img/_logo.png' size='huge'/>}
+    content={this.props.yil+' '+this.props.grup+' '+this.props.url}
+    inverted
+    />
+}
+
   render() {
-    const {yil, grup, url} = this.props;
     return <Segment tertiary basic>
               <Container textAlign="justified">
-                  <Header as="h1"><Image src='/img/_logo.png' size='huge' />
+                  <Header as="h1"><this.myPopup />
                       <Header.Content>
-                          Bilgi Teknolojileri
-                          <Label size='mini' basic>{yil}</Label>
-                          <Label size='mini' basic>{grup}</Label>
-                          <Label size='mini' basic><a href={url} target='_blank'>{url}</a></Label>
-
+                         Bilgi Teknolojileri
                      </Header.Content>
                   </Header>
 
@@ -55,7 +59,5 @@ this.setState({
   }
 }
 
-const mapStateToProps = state => ({ yil: state.yil, grup: state.grup, url: state.url });
+const mapStateToProps = (state) => ({ yil: state.yil, grup: state.grup, url: state.url });
 export default connect(mapStateToProps)(App);
-
-// export default App;

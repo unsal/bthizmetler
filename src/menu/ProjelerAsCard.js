@@ -1,15 +1,11 @@
 import React, { Component } from 'react'
-import { Segment, Dimmer, Loader, Message, Card, Label, Icon } from 'semantic-ui-react'
+import { Segment, Dimmer, Loader, Message, Card, Label, Icon, Popup } from 'semantic-ui-react'
 //redux
 import { connect } from 'react-redux';
 import { updateStoreDataMW } from '../redux/actions';
 import { store } from '../redux/store';
 
-// import db from './data/projeler.json'
-
-// const messageStyle = {
-//   marginLeft: '15px'
-// };
+import ProjelerForm from './ProjelerForm';
 
 
 class ProjelerAsCard extends Component {
@@ -24,12 +20,10 @@ class ProjelerAsCard extends Component {
   }
 
 
-
 componentDidMount() {
   this.setState({ didMount: true });
   store.dispatch(updateStoreDataMW());
 
-  // dataToStore(this.props.url);
  }
 
 
@@ -41,30 +35,40 @@ componentDidMount() {
    }
 
 
-Corner = (props) => {
-    switch(props.kodu) {
-      case "2": return <Label color='green'  corner='right'><Icon name='checkmark' /></Label>; //done
-      case "0": return <Label color='blue'   corner='right'><Icon loading name='asterisk' /></Label>; //işlemde
-      case "1": return <Label                corner='right'><Icon name='pin' /></Label>; //Sıradaki
-      case "3": return <Label color='red'    corner='right'><Icon name='send outline' /></Label>; //iptal
+Corner = (durum) => {
+    switch(durum) {
+      case "2": return <Label color='green'  corner='right'><Icon link name='checkmark' /></Label>; //done
+      case "0": return <Label color='blue'   corner='right'><Icon link loading name='asterisk' /></Label>; //işlemde
+      case "1": return <Label                corner='right'><Icon link name='pin' /></Label>; //Sıradaki
+      case "3": return <Label color='red'    corner='right'><Icon link name='send outline' /></Label>; //iptal
       default: return "Belirsiz";
   }
 }
 
 ListProjeler = (props) => {
-
 const data = props.data;
 return <Card.Group itemsPerRow={4}>
   { data?
-    Object.keys(props.data)
+    Object.keys(data)
           .map(key => {
                   return (
-                    <Card key={key}>
+                    <Card key={key} className="projectCard">
                     <Card.Content>
-                      <this.Corner kodu={props.data[key].durum} />
-                      <Card.Header>{props.data[key].baslik}</Card.Header>
-                      <Card.Meta>{props.data[key].birim}</Card.Meta>
-                      <Card.Description>{props.data[key].aciklama}
+
+                        <Popup
+                          trigger={this.Corner(data[key].durum)}
+                          content={data[key].sonuc}
+                          on='click'
+                          position ='right center'
+                          inverted
+                        />
+
+                      <Card.Header>{data[key].baslik}</Card.Header>
+                      {/* <Card.Meta>{props.data[key].birim}</Card.Meta> */}
+                      <Card.Description>{data[key].aciklama}
+                                      <Label attached='bottom right' className="editProjectCard">
+                                         <ProjelerForm data={data[key]} baslik="Güncelle" icon="write"/>
+                                      </Label>
                     </Card.Description>
 
                     </Card.Content>
@@ -72,7 +76,7 @@ return <Card.Group itemsPerRow={4}>
                           )
                       }
               ):
-    <Icon  name='remove' />
+    <Icon  name='close' />
   }
 
 </Card.Group>
@@ -92,5 +96,5 @@ const html = this.state.errMessage !=="" ?
           }
 }
 
-const mapStateToProps = state => ({ yil: state.yil, grup: state.grup, url: state.url, data: state.data });
+const mapStateToProps = state => ({ data: state.data });
 export default connect(mapStateToProps)(ProjelerAsCard);

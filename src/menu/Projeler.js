@@ -2,11 +2,12 @@ import React, { Component } from 'react';
 import { Menu, Segment, Icon } from 'semantic-ui-react';
 import ProjelerAsCard from './ProjelerAsCard';
 import ProjelerAsList from './ProjelerAsList';
+import ProjelerForm from './ProjelerForm';
 
 //redux
 import { connect } from 'react-redux';
 import { store } from '../redux/store';
-import { updateStoreYil, updateStoreGrup, updateStoreURL, updateStoreDataMW } from '../redux/actions';
+import { updateStoreYilMW, updateStoreGrupMW } from '../redux/actions';
 
 class Projeler extends Component {
 
@@ -25,16 +26,9 @@ class Projeler extends Component {
   }
 
 
-  handleClickYil = (e, { name }) => {
-                    store.dispatch(updateStoreYil(name));
-                    store.dispatch(updateStoreURL());
-                    store.dispatch(updateStoreDataMW())
-                  }
-  handleClickGrup = (e, { name }) => {
-                    store.dispatch(updateStoreGrup(name));
-                    store.dispatch(updateStoreURL());
-                    store.dispatch(updateStoreDataMW())
-                  }
+  handleClickYil = (e, { name }) => { store.dispatch(updateStoreYilMW(name)); }
+  handleClickGrup = (e, { name }) => { store.dispatch(updateStoreGrupMW(name)); }
+
 
 yil = () => {
     const yil  = this.props.yil;
@@ -43,19 +37,27 @@ yil = () => {
     <Menu.Item name='2017' active={yil === '2017'} onClick={this.handleClickYil} />
     <Menu.Item name='2018' active={yil === '2018'} onClick={this.handleClickYil} />
     <Menu.Item name='Format:' position='right'>
-        <Icon name='content' link onClick={()=>this.setState({showAs: 'List'})}/>
-        <Icon name='block layout' link onClick={()=>this.setState({showAs: 'Card'})}/>
+        <ProjelerForm baslik="Ekle" icon="add square" />
+        {/* <Icon name='add square' size='large' link /> */}
+        <Icon />
+        <Icon name='save' size='large' link />
+        <Icon name='mail outline' size='large' link />
+        <Icon />
+        <Icon name='pie graph' link size='large' />
+        <Icon name='content' link size='large' onClick={()=>this.setState({showAs: 'List'})}/>
+        <Icon name='block layout' size='large' link onClick={()=>this.setState({showAs: 'Card'})}/>
     </Menu.Item>
   </Menu>
 }
 
 grup = () => {
-    const _grup  = this.props.grup;
+    const grup  = this.props.grup;
     return <Menu pointing secondary size='mini'>
-      <Menu.Item name='yazilim' active={_grup === 'yazilim'} onClick={this.handleClickGrup} />
-      <Menu.Item name='sistem' active={_grup === 'sistem'} onClick={this.handleClickGrup} />
-      <Menu.Item name='kurumsal' active={_grup === 'kurumsal'} onClick={this.handleClickGrup} />
-      <Menu.Item name='destek' active={_grup === 'destek'} onClick={this.handleClickGrup} />
+      <Menu.Item name='tumu' active={grup === 'tumu'} onClick={this.handleClickGrup} />
+      <Menu.Item name='yazilim' active={grup === 'yazilim'} onClick={this.handleClickGrup} />
+      <Menu.Item name='sistem' active={grup === 'sistem'} onClick={this.handleClickGrup} />
+      <Menu.Item name='kurumsal' active={grup === 'kurumsal'} onClick={this.handleClickGrup} />
+      <Menu.Item name='destek' active={grup === 'destek'} onClick={this.handleClickGrup} />
     </Menu>
 }
 
@@ -68,7 +70,7 @@ ShowAs = () => {
      }
 
   render() {
-    return <Segment secondary basic>
+    return <Segment basic>
               <this.yil />
               <this.grup />
               <this.ShowAs />
@@ -76,5 +78,5 @@ ShowAs = () => {
   }
 }
 
-const mapStateToProps = (state) => ({ yil: state.yil, grup: state.grup, url: state.url });
+const mapStateToProps = (state) => ({ yil: state.yil, grup: state.grup });
 export default connect(mapStateToProps)(Projeler);

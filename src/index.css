@@ -4,6 +4,8 @@ body {
   font-family: sans-serif;
 }
 
+
+
 .hizmetlistesi {
   color: #000000;
   font-weight: bold;
@@ -15,5 +17,36 @@ body {
 
 a {
   color: #000000 !important;
+}
+
+/* ProjelerAsCard */
+
+/* ProjelerAsCard > Card > label edit kalemin zemin rengini griden beyaz yapar */
+.editProjectCard {
+  background-color: #fff !important;
+  display: none !important;
+}
+
+/* ProjelerAsCard > Card > card üstüne gelince edit kalemi gözükmesi için */
+.projectCard:hover .editProjectCard {
+  display: block !important;
+}
+
+.projectCard .header, .description {
+  text-align: left !important;
+}
+
+/* Semantic UI modal position fix */
+/* .ui.active.dimmer.modals.transition {
+    display: flex !important;
+    display: -ms-flexbox !important;
+} */
+
+/* Semantic UI modal position fix */
+.visible.transition {
+  margin-top: auto !important;
+  display: inline-block !important;
+  position: relative;
+  top: 5%;
 }
 
