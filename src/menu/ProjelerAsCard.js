@@ -67,7 +67,7 @@ return <Card.Group itemsPerRow={4}>
                       {/* <Card.Meta>{props.data[key].birim}</Card.Meta> */}
                       <Card.Description>{data[key].aciklama}
                                       <Label attached='bottom right' className="editProjectCard">
-                                         <ProjelerForm data={data[key]} baslik="Güncelle" icon="write"/>
+                                         <ProjelerForm data={data[key]} baslik="Güncelle" icon="write" />
                                       </Label>
                     </Card.Description>
 
