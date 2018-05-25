@@ -1,0 +1,13 @@
+{
+    "birim": [
+        {"text":"Rektörlük", "value":"Rektörlük"},
+        {"text":"ÖH", "value":"ÖH"},
+        {"text":"IK", "value":"IK"},
+        {"text":"FI", "value":"FI"},
+        {"text":"Spor", "value":"Spor"},
+        {"text":"Akademik", "value":"Akademik"},
+        {"text":"Mühendislik", "value":"Muhendislik"},
+        {"text":"BT", "value":"BT"},
+        {"text":"Psikoloji", "value":"Psikoloji"}
+    ]
+}

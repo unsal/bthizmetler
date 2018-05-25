@@ -1,0 +1,7 @@
+
+  Project Prerequisites:
+  --------------------------------
+  yarn add semantic-ui-react
+  yarn add axios
+  npm install redux react-redux redux-thunk --save
+  npm install --save-dev redux-devtools

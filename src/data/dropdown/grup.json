@@ -1,0 +1,8 @@
+{
+    "grup": [
+        {"text":"Yazılım", "value":"yazilim"},
+        {"text":"Sistem Network", "value":"sistem"},
+        {"text":"Kurumsal Çözümler", "value":"kurumsal"},
+        {"text":"Kullanıcı Destek", "value":"destek"}
+    ]
+}

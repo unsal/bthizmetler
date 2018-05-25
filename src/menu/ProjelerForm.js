@@ -4,6 +4,7 @@ import {durum} from '../data/dropdown/durum.json';
 import {birim} from '../data/dropdown/birim.json';
 import {grup} from '../data/dropdown/grup.json';
 import {yil} from '../data/dropdown/yil.json';
+import {empty} from '../unsal.js';
 
 class ProjelerForm extends Component {
 
@@ -20,17 +21,18 @@ class ProjelerForm extends Component {
   componentDidMount() {
     const data = this.props.data;
     this.setState({
-      db: data ? data : [],
-      yeni: !data ? true : false,
+      db: !empty(data) ? data : [],
+      // yeni: !!empty(data) ? true : false,
+      yeni: empty(data) ? true : false,
 
-      baslik: data ? data.baslik : '',
-      aciklama: data ? data.aciklama : '',
-      sonuc: data ? data.sonuc : '',
-      yil: data ? data.yil : '',
-      grup: data ? data.grup : '',
-      birim: data ? data.birim : '',
-      durum: data ? data.durum : '',
-      zamandamgasi: data? data.zamandamgasi : ''
+      baslik: !empty(data) ? data.baslik : '',
+      aciklama: !empty(data) ? data.aciklama : '',
+      sonuc: !empty(data) ? data.sonuc : '',
+      yil: !empty(data) ? data.yil : '',
+      grup: !empty(data) ? data.grup : '',
+      birim: !empty(data) ? data.birim : '',
+      durum: !empty(data) ? data.durum : '',
+      zamandamgasi: !empty(data)? data.zamandamgasi : ''
 
     });
   }
@@ -38,13 +40,20 @@ class ProjelerForm extends Component {
   close = () => {this.setState({ open: false})}
   show = () => {this.setState({ open: true})}
 
-  onChangeBaslik = (e, field) => { this.setState({ baslik: field.value });}
-  onChangeAciklama = (e, field) => { this.setState({ aciklama: field.value });}
-  onChangeSonuc = (e, field) => { this.setState({ sonuc: field.value });}
-  onChangeYil = (e, field) => { this.setState({ yil: field.value }); }
-  onChangeGrup = (e, field) => { this.setState({ grup: field.value }); }
-  onChangeBirim = (e, field) => { this.setState({ birim: field.value }); }
-  onChangeDurum = (e, field) => { this.setState({ durum: field.value }); }
+  //datanın kopyasını alır ve ilgili alanı günceller... yarıda kaldıs
+  handleChange = (e) => {
+    const data = this.state.db;
+
+    // Data içindeki sadcee ilgili değeri değiştiri, gerisi aynı kalır. !! Güzel özellik!!
+    const updatedData = {
+       ...data,
+       [e.target.name]: e.target.value  // değişkeni [..] içine alamk onu karakter olarak kullanmayı sağlıyor. önemli..
+    }
+
+    this.setState({ db: updatedData })
+
+    console.log(this.state.db)
+  }
 
   render() {
     const {baslik, icon} = this.props;
@@ -56,18 +65,18 @@ class ProjelerForm extends Component {
         <Modal.Description>
 
           <Form size="mini">
-            <Form.Input fluid label='PROJE ADI' placeholder="Proje Adı" value={this.state.baslik} onChange={this.onChangeBaslik} />
+            <Form.Input fluid label='PROJE ADI' name="baslik" placeholder="Proje Adı" defaultValue={this.state.baslik} onChange={this.handleChange}/>
             <Form.Group widths='equal' >
-              <Form.Dropdown label='PROJE YILI' value={this.state.yil} search selection options={yil} placeholder='Proje Yılını Seçiniz' onChange={this.onChangeYil}/>
-              <Form.Dropdown label='PROJE GRUBU' value={this.state.grup} search selection options={grup} placeholder='BT grubunu seçiniz' onChange={this.onChangeGrup}/>
-              <Form.Dropdown label='TALEP EDEN BİRİM' value={this.state.birim} search selection options={birim} placeholder='Birimi Seçiniz' onChange={this.onChangeBirim}/>
+              <Form.Dropdown label='PROJE YILI' name="yil" defaultValue={this.state.yil} search selection options={yil} placeholder='Proje Yılını Seçiniz' onChange={this.handleChange} />
+              <Form.Dropdown label='PROJE GRUBU' name="grup" defaultValue={this.state.grup} search selection options={grup} placeholder='BT grubunu seçiniz' onChange={this.handleChange} />
+              <Form.Dropdown label='TALEP EDEN BİRİM' name="birim" defaultValue={this.state.birim} search selection options={birim} placeholder='Birimi Seçiniz' onChange={this.handleChange} />
 
             </Form.Group>
-            <Form.TextArea label='AÇIKLAMA' placeholder='Açıklama' value={this.state.aciklama} onChange={this.onChangeAciklama} />
-            <Form.Dropdown label='DURUM' value={this.state.durum} search selection options={durum} placeholder='Proje Durumu Seçiniz' onChange={this.onChangeDurum}/>
+            <Form.TextArea label='AÇIKLAMA' name="aciklama" placeholder='Açıklama' defaultValue={this.state.aciklama} onChange={this.handleChange} />
+            <Form.Dropdown label='DURUM' name="durum" defaultValue={this.state.durum} search selection options={durum} placeholder='Proje Durumu Seçiniz' onChange={this.handleChange} />
 
-            <Form.TextArea label='SONUÇ' placeholder='Sonuç' value={this.state.sonuc} onChange={this.onChangeSonuc}/>
-            <Form.Input fluid label='KAYIT TARİHİ' placeholder="Tarih" value={!this.state.yeni ? this.state.zamandamgasi : yeniZaman} />
+            <Form.TextArea label='SONUÇ' name="sonuc" placeholder='Sonuç' defaultValue={this.state.sonuc} onChange={this.handleChange} />
+            <Form.Input fluid label='KAYIT TARİHİ' name="zamandamgasi" placeholder="Tarih" disabled value={!this.state.yeni ? this.state.zamandamgasi : yeniZaman} />
             <Form.Group>
               <Form.Button primary>{baslik}</Form.Button>
               {!this.state.yeni ? <Form.Button negative>Sil</Form.Button> : <span />}

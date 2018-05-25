@@ -1,0 +1,8 @@
+{
+    "durum": [
+        {"text":"İşlemde", "value":"0", "label": { "color": "blue" }},
+        {"text":"Tamam", "value":"2", "label": { "color": "green" }},
+        {"text":"Sırada", "value":"1", "label": { "color": "grey" }},
+        {"text":"İptal", "value":"3", "label": { "color": "red" }}
+    ]
+}
