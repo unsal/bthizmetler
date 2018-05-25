@@ -40,20 +40,24 @@ class ProjelerForm extends Component {
   close = () => {this.setState({ open: false})}
   show = () => {this.setState({ open: true})}
 
+  handleSubmit = (e) => {
+    console.log(this.state.db)
+  }
+
   //datanın kopyasını alır ve ilgili alanı günceller... yarıda kaldıs
   handleChange = (e) => {
     const data = this.state.db;
-
     // Data içindeki sadcee ilgili değeri değiştiri, gerisi aynı kalır. !! Güzel özellik!!
     const updatedData = {
        ...data,
        [e.target.name]: e.target.value  // değişkeni [..] içine alamk onu karakter olarak kullanmayı sağlıyor. önemli..
     }
+    // setstate synchronius çalışmadığı için başka bir fonksiyonla tetiklemek lazım...
+    this.setState({ db: updatedData }, this.handleSubmit)
 
-    this.setState({ db: updatedData })
-
-    console.log(this.state.db)
   }
+
+
 
   render() {
     const {baslik, icon} = this.props;
