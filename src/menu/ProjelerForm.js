@@ -33,8 +33,8 @@ class ProjelerForm extends Component {
       birim: !empty(data) ? data.birim : '',
       durum: !empty(data) ? data.durum : '',
       zamandamgasi: !empty(data)? data.zamandamgasi : ''
-
     });
+
   }
 
   close = () => {this.setState({ open: false})}
@@ -53,7 +53,8 @@ class ProjelerForm extends Component {
        [e.target.name]: e.target.value  // değişkeni [..] içine alamk onu karakter olarak kullanmayı sağlıyor. önemli..
     }
     // setstate synchronius çalışmadığı için başka bir fonksiyonla tetiklemek lazım...
-    this.setState({ db: updatedData }, this.handleSubmit)
+    // this.setState({ db: updatedData }, this.handleSubmit)
+    console.log(e.target.value)
 
   }
 
@@ -62,6 +63,8 @@ class ProjelerForm extends Component {
   render() {
     const {baslik, icon} = this.props;
     const yeniZaman = new Date().toLocaleString();
+
+    console.log("on render:",this.state.yil);
 
     return <Modal dimmer='blurring' open={this.state.open} trigger={<Icon name={icon} size="large" link onClick={ this.show }/>} >
       <Modal.Header>{baslik}</Modal.Header>

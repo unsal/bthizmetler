@@ -26,7 +26,7 @@ class Projeler extends Component {
   }
 
 
-  handleClickYil = (e, { name }) => { store.dispatch(updateStoreYilMW(name)); }
+  handleClickYil = (e, { name }) => { store.dispatch(updateStoreYilMW(name));}
   handleClickGrup = (e, { name }) => { store.dispatch(updateStoreGrupMW(name)); }
 
 

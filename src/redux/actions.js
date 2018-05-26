@@ -43,6 +43,7 @@ export const updateStoreGrup = grup => {
     return { type: STORE_URL_ALL }
   }
 
+  // axios'dan alınan veri'yı redux state.data'ya atar...
   export const updateStoreData = data => {
     return { type: STORE_DATA, data }
   }
